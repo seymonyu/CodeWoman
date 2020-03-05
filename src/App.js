@@ -7,8 +7,7 @@ function App() {
   return (
     <div className="App">
       <Start />
-      <SelectHero />
-    </div>
+      
   );
 }
 export default App;
