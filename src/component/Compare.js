@@ -1,9 +1,8 @@
-
 import React, { Component } from "react";
 import axios from "axios";
 import "./scss/Compare.scss";
 const access_token = "2560077217542151";
-const avatarId = "53";
+
 const enemyId = "69";
 
 class Compare extends Component {
@@ -38,7 +37,7 @@ class Compare extends Component {
   }
 
   componentDidMount() {
-    axios.get(`/${access_token}/${avatarId}`).then(res => {
+    axios.get(`/${access_token}/${this.props.avatarId}`).then(res => {
       this.setState({ myChar: res.data });
     });
     axios.get(`/${access_token}/${enemyId}`).then(res => {
@@ -124,4 +123,3 @@ export default Compare;
 
   this.result = this.result.bind(this);
         */
-
