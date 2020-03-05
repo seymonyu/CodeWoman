@@ -1,8 +1,12 @@
+
 import React from "react";
-import SelectHero from "./component/SelectHero";
+import Compare from "./component/Compare"
 
 function App() {
-  return <SelectHero />;
+     <div>
+     <Compare />
+    </div>
+
 }
 
 export default App;
