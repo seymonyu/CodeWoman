@@ -26,7 +26,7 @@ function getQuestion(questionsList) {
 class Questions extends Component {
   state = {
     questions: [],
-    answered: 0
+    answered: 0 // 0 - unanswered, 1 - correct, 2 - incorrect
   };
 
   componentDidMount() {
