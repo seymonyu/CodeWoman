@@ -17,7 +17,7 @@ class SelectHero extends Component {
           let temp = response.data;
           this.setState({
             superHero: [...this.state.superHero, temp],
-            selectedHero: temp
+            selectedHero: temp.id
           });
         })
         .catch(error => console.error(`something went wrong: ${error}`));
@@ -25,7 +25,7 @@ class SelectHero extends Component {
   }
 
   selectHeroOnClick = chosenHero => {
-    this.setState({ selectedHero: chosenHero, selectHeroMount: true });
+    this.setState({ selectedHero: chosenHero.id, selectHeroMount: true });
   };
 
   render() {
