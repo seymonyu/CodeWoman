@@ -51,10 +51,6 @@ const questionsList = [
   },
 
   {
-<<<<<<< HEAD:src/components/Questions.js
-    Q: "question3",
-    A: true
-=======
     Q: "Do women live longer than men?",
     A: true
   },
@@ -87,7 +83,6 @@ const questionsList = [
   {
     Q: "Women have equal pay across industries",
     A: false
->>>>>>> Developer:src/Questions.js
   }
 ];
 
