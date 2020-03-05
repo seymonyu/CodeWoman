@@ -1,13 +1,11 @@
 import React from "react";
-import SelectHero from "./component/SelectHero";
 import Compare from "./component/Compare";
-import "./App.css";
+import SelectHero from "./component/SelectHero";
 
 function App() {
   return (
     <div>
       <SelectHero />
-      <Compare />
     </div>
   );
 }

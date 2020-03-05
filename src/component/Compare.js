@@ -1,43 +1,48 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./scss/Compare.scss";
+import DisplayResult from "./DisplayResult";
 const access_token = "2560077217542151";
-
-const enemyId = "69";
-
-class Compare extends Component {
+const enemyId = "522";
+class Compare extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       myChar: {
         powerstats: {
-          intelligence: "",
+          inteligence: " ",
           strength: "",
           speed: ""
         },
-        name: "",
         image: {
           url: ""
-        }
+        },
+        name: ""
       },
-      enemy: {
-        powerstats: { intelligence: "", strength: "", speed: "" },
-        name: "",
-        image: {
-          url: ""
-        }
-      }
-    };
 
-    this.componentDidMount = this.componentDidMount.bind(this);
+      enemy: {
+        powerstats: {
+          inteligence: " ",
+          strength: "",
+          speed: ""
+        },
+        image: { url: "" },
+        name: ""
+      },
+      flag: 0,
+      mount: false
+    };
     this.result = this.result.bind(this);
-    this.getIntelligence = this.getIntelligence.bind(this);
-    this.getStrength = this.getStrength.bind(this);
+    this.getInteligence = this.getInteligence.bind(this);
     this.getSpeed = this.getSpeed.bind(this);
+    this.getStrength = this.getStrength.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
+    this.handlerunmount = this.handlerunmount.bind(this);
   }
 
   componentDidMount() {
-    axios.get(`/${access_token}/${this.props.avatarId}`).then(res => {
+    const avatarId = this.props.avatarId;
+    axios.get(`/${access_token}/${avatarId}`).then(res => {
       this.setState({ myChar: res.data });
     });
     axios.get(`/${access_token}/${enemyId}`).then(res => {
@@ -72,32 +77,34 @@ class Compare extends Component {
   }
   render() {
     return (
-      <div className="compare-div">
-        <div className="chars">
-          <div>
-            <img src={this.state.myChar.image.url} alt="char" />
-            <ul>
-              <li> {this.state.myChar.name} </li>
-              <li> {this.state.myChar.powerstats.intelligence}</li>
-              <li> {this.state.myChar.powerstats.strength}</li>
-              <li> {this.state.myChar.powerstats.speed}</li>
-            </ul>
-          </div>
-          <div>
-            <img src={this.state.enemy.image.url} alt="char" />
-            <ul>
-              <li> {this.state.enemy.name} </li>
-              <li> {this.state.enemy.powerstats.intelligence}</li>
-              <li> {this.state.enemy.powerstats.strength}</li>
-              <li> {this.state.enemy.powerstats.speed}</li>
-            </ul>
-          </div>
+      <div className="displayBlock">
+        <div className="Avatars">
+          <h1>{this.state.myChar.name} </h1>
+          <img src={this.state.myChar.image.url} alt="myChar" />
+          <ul>
+            <li> {this.state.myChar.powerstats.intelligence}</li>
+            <li> {this.state.myChar.powerstats.strength}</li>
+            <li> {this.state.myChar.powerstats.speed}</li>
+          </ul>
+          <h1>{this.state.enemy.name} </h1>
+          <img src={this.state.enemy.image.url} alt="myChar" />
+          <ul>
+            <li> {this.state.enemy.powerstats.intelligence}</li>
+            <li> {this.state.enemy.powerstats.strength}</li>
+            <li> {this.state.enemy.powerstats.speed}</li>
+          </ul>
         </div>
-        <div className="buttons">
-          <button onClick={this.getIntelligence}>Intelligence</button>
-
-          <button onClick={this.getStrength}>Strength</button>
-          <button onClick={this.getSpeed}>Speed</button>
+        {this.state.mount === true ? (
+          <DisplayResult
+            flag={this.state.flag}
+            handlerunmount={this.handlerunmount}
+            mount={this.state.mount}
+          />
+        ) : null}
+        <div className="Buttons">
+          <button onClick={this.getInteligence}>Intelligence</button>
+          <button onClick={this.getSpeed}>Strength</button>
+          <button onClick={this.getStrength}>Speed</button>
         </div>
       </div>
     );
