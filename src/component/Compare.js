@@ -35,28 +35,11 @@ class Compare extends React.Component{
         this.getInteligence = this.getInteligence.bind(this);
         this.getSpeed = this.getSpeed.bind(this);
         this.getStrength = this.getStrength.bind(this);
-        this.componentDidMount = this.componentDidMount.bind(this);
+    
         this.handlerunmount = this.handlerunmount.bind(this);
-
-
-
-
     };
-  componentDidMount(){
-     axios.get(`10217697164035503/10`)
-      .then(res=>{
-          console.log(res.data)
-          this.setState({myChar:res.data})
-          })
 
-          axios.get(`10217697164035503/7`)
-      .then(res=>{
-          console.log(res.data)
-          this.setState({enemy:res.data})
-          })
-    
-      };
-    
+      
     
 
    result(myStats,enemyStats){
