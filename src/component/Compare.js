@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "./scss/Compare.scss";
 const access_token = "2560077217542151";
-const avatarId = "522";
+const avatarId = "53";
 const enemyId = "69";
 
 class Compare extends Component {
