@@ -1,0 +1,23 @@
+/* COLORS */
+$red: #EC5C56;
+$blue: #1C447B;
+$grey: #DDDDDD;
+$brown: #816452;
+ /* FONT FAMILY */
+$font: “Roboto”;
+ /* FONT WEIGHTS */
+$light: 300;
+$medium: 500;
+ /* FONT SIZE */
+$h1: 8vw;
+$h2: 5vw;
+$bodytext: 1.3rem;
+$marginal: 14px;
+ /* BORDER */
+$border-thick: 4px;
+$border-thin: 1px;
+
+.game_over {
+    font-size:$h1;
+    color:#EC5C56;
+}
