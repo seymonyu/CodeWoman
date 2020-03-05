@@ -7,7 +7,8 @@ class SelectHero extends Component {
     id_list: [589, 720, 165, 638, 309, 356, 107, 238, 643],
     superHero: [],
     selectHeroMount: false,
-    selectedHero: ""
+    selectedHero: "",
+    unmount:true
   };
 
   componentDidMount() {
@@ -27,7 +28,12 @@ class SelectHero extends Component {
 
   selectHeroOnClick = chosenHero => {
     this.setState({ selectedHero: chosenHero.id, selectHeroMount: true });
+     this.handlermountComp()
   };
+  
+  handlermountComp(){
+  this.setState({unmount:false})
+  }
 
   render() {
     return (
@@ -35,8 +41,10 @@ class SelectHero extends Component {
         {this.state.superHero.map((item, index) => (
           <HeroList key={index} obj={item} onClick={this.selectHeroOnClick} />
         ))}
-      <Compare />
-      </div>
+       
+        
+   {this.state.unmount===false? <Compare selectedHero={this.state.selectedHero}/>: null}
+     </div>
 
     );
   }

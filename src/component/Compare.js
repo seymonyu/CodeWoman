@@ -3,7 +3,6 @@ import axios from "axios"
 import "./scss/Compare.scss"
 import DisplayResult from "./DisplayResult"
 
-
 class Compare extends React.Component{
  constructor(props) {
     super(props);
@@ -30,16 +29,29 @@ class Compare extends React.Component{
               flag:0,
               mount:false
             
-      }
+      } 
         this.result = this.result.bind(this);
         this.getInteligence = this.getInteligence.bind(this);
         this.getSpeed = this.getSpeed.bind(this);
         this.getStrength = this.getStrength.bind(this);
-    
+        this.componentDidMount = this.componentDidMount.bind(this);
         this.handlerunmount = this.handlerunmount.bind(this);
     };
+  componentDidMount(){
+     axios.get(`10217697164035503/${this.props.selectedHero}`)
+      .then(res=>{
+          console.log(res.data)
+          this.setState({myChar:res.data})
+          })
 
-      
+          axios.get(`10217697164035503/7`)
+      .then(res=>{
+          console.log(res.data)
+          this.setState({enemy:res.data})
+          })
+    
+      };
+    
     
 
    result(myStats,enemyStats){
@@ -82,7 +94,7 @@ this.result(this.state.myChar.powerstats.strength,this.state.enemy.powerstats.in
     <div className="Avatars">
 
       <h1>{this.state.myChar.name} </h1>
-      <img src={this.state.myChar.image.url} alt="myChar"/>
+       <img src={this.state.myChar.image.url} alt="myChar"/>
       <ul> 
       <li> {this.state.myChar.powerstats.intelligence}</li>
        <li> {this.state.myChar.powerstats.strength}</li>
