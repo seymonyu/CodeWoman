@@ -1,15 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import SelectHero from './SelectHero';
-//import Loser from './Loser'
+import React from "react";
+import Compare from "./component/Compare"
+import SelectHero from "./component/SelectHero"
 
 function App() {
-  return (
-    <div className="App">
-     <SelectHero />
+  return(
+     <div>
+     <SelectHero/>
+    
     </div>
-  );
+    )
+
 }
 
 export default App;
