@@ -124,21 +124,3 @@ class Compare extends React.Component {
 }
 
 export default Compare;
-
-/*{" "}
-       
-
-
-         <div>{this.result()}</div>
-
-
-  result() {
-    if (this.state.char.powerstats.power > enemy.powerstats.power) {
-      return <div>You win!</div>;
-    } else {
-      return <div>Loser!</div>;
-    }
-  }
-
-  this.result = this.result.bind(this);
-        */
