@@ -4,7 +4,7 @@ $blue: #1c447b;
 $grey: #dddddd;
 $brown: #816452;
 /* FONT FAMILY */
-$font: “Roboto”;
+$font: "Roboto";
 /* FONT WEIGHTS */
 $light: 300;
 $medium: 500;
@@ -16,6 +16,9 @@ $marginal: 14px;
 /* BORDER */
 $border-thick: 4px;
 $border-thin: 1px;
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap");
+
 .robot {
   background: $grey;
 }
@@ -411,7 +414,7 @@ $border-thin: 1px;
   padding: 5%;
 }
 .speech-bubble:after {
-  content: “”;
+  content: "";
   position: absolute;
   left: 0;
   top: 50%;
