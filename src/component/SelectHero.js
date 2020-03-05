@@ -42,7 +42,7 @@ class SelectHero extends Component {
           <HeroList key={index} obj={item} onClick={this.selectHeroOnClick} />
         ))}
         {this.state.unmount === false ? (
-          <Compare avatarId={this.state.superHero} />
+          <Compare avatarId={this.state.selectedHero} />
         ) : null}
       </div>
     );
