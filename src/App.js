@@ -1,13 +1,12 @@
-import React from 'react';
+
+import React from "react";
 import Compare from "./component/Compare"
 
 function App() {
-  return (
-    <div 
-    >
+     <div>
      <Compare />
     </div>
-  );
+
 }
 
 export default App;
