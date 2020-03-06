@@ -5,7 +5,7 @@ import DisplayResult from "./DisplayResult";
 const access_token = "2560077217542151";
 const enemyId = ["423", "119", "598", "251", "346", "222", "149", "180"];
 const enemyChar = enemyId[Math.floor(Math.random() * enemyId.length)];
-class Compare extends React.Component {
+class Compare extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -73,13 +73,6 @@ class Compare extends React.Component {
     );
     this.setState({ mount: true });
   }
-  getSpeed() {
-    this.result(
-      this.state.myChar.powerstats.speed,
-      this.state.enemy.powerstats.speed
-    );
-    this.setState({ mount: true });
-  }
   getStrength() {
     this.result(
       this.state.myChar.powerstats.strength,
@@ -87,6 +80,14 @@ class Compare extends React.Component {
     );
     this.setState({ mount: true });
   }
+  getSpeed() {
+    this.result(
+      this.state.myChar.powerstats.speed,
+      this.state.enemy.powerstats.speed
+    );
+    this.setState({ mount: true });
+  }
+
   render() {
     return (
       <div className="displayBlock">
