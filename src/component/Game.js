@@ -99,9 +99,15 @@ class Game extends Component {
     myAllies: [],
     myAlliesUrl: [],
     forward_flag: 0,
-    enemyId: [423, 119, 598, 251, 346, 222, 149, 180]
+    enemyId: [423, 119, 598, 251, 346, 222, 149, 180],
     myAlliesdata: []
   };
+componentDidMount(){
+  this.setState({
+     answered: 0,
+     id_list:this.props.id_list,
+  })
+}
 
   handlerGameFlow = () => {
     this.setState({forward_flag: this.state.forward_flag + 1 });
@@ -174,7 +180,7 @@ class Game extends Component {
     return (
       <div>
        {this.state.forward_flag === 0||this.state.forward_flag === 2 || this.state.forward_flag === 4||this.state.forward_flag === 6||this.state.forward_flag === 8?
-      <GameStory forward_flag={this.state.forward_flag} ourHero={this.props.ourHero} handlerGameFlow={this.handlerGameFlow}/>: null}
+      <GameStory forward_flag={this.state.forward_flag} ourHeroUrl={this.props.ourHeroUrl} handlerGameFlow={this.handlerGameFlow}/>: null}
 
         {this.state.forward_flag === 1 ? 
           <Questions
@@ -184,6 +190,9 @@ class Game extends Component {
             answered={this.state.answered}
             handlerQUnmount={this.toggleQuestionsMount}
             handlerGameFlow = { this.handlerGameFlow }
+            addMyAlly={this.addMyAlly}
+            myAlliesUrl={this.state.myAlliesUrl}
+            myAlliesdata={this.state.myAlliesdata}
           />:null}
 
 
@@ -193,9 +202,10 @@ class Game extends Component {
              handlerGameFlow = { this.handlerGameFlow }
             handlerCUnmount={this.toggleCompareMount}
             spliceEnemyId={this.spliceEnemyId}
+            enemyId={this.state.enemyId}
             addMyAlly={this.addMyAlly}
-            myAlliesUrl={this.myAlliesUrl}
-            myAlliesdata={this.myAlliesdata}
+            myAlliesUrl={this.state.myAlliesUrl}
+            myAlliesdata={this.state.myAlliesdata}
           />
         ) : null}
 
@@ -206,18 +216,22 @@ class Game extends Component {
             handleNo={this.handleNo}
             answered={this.state.answered}
             handlerQUnmount={this.toggleQuestionsMount}
-             handlerGameFlow = { this.handlerGameFlow }
+            handlerGameFlow = { this.handlerGameFlow }
+            addMyAlly={this.addMyAlly}
+            myAlliesUrl={this.state.myAlliesUrl}
+            myAlliesdata={this.state.myAlliesdata}
           />
         ) : null}
         {this.state.forward_flag === 6? (
-          <Compare
-           selectedHero={this.props.selectedHero}
+            <Compare
+            selectedHero={this.props.selectedHero}
              handlerGameFlow = { this.handlerGameFlow }
             handlerCUnmount={this.toggleCompareMount}
             spliceEnemyId={this.spliceEnemyId}
+             enemyId={this.state.enemyId}
             addMyAlly={this.addMyAlly}
-            myAlliesUrl={this.myAlliesUrl}
-            myAlliesdata={this.myAlliesdata}
+            myAlliesUrl={this.state.myAlliesUrl}
+            myAlliesdata={this.state.myAlliesdata}
           />
         ) : null}
         {this.state.forward_flag === 8 ? (
@@ -227,28 +241,26 @@ class Game extends Component {
             handleNo={this.handleNo}
             answered={this.state.answered}
             handlerQUnmount={this.toggleQuestionsMount}
-             handlerGameFlow = { this.handlerGameFlow }
+            handlerGameFlow = { this.handlerGameFlow }
+            addMyAlly={this.addMyAlly}
+            myAlliesUrl={this.state.myAlliesUrl}
+            myAlliesdata={this.state.myAlliesdata}
           />
         ) : null}
         {this.state.forward_flag === 10 ? (
-          <Compare
-           selectedHero={this.props.selectedHero}
+           <Compare
+            selectedHero={this.props.selectedHero}
              handlerGameFlow = { this.handlerGameFlow }
             handlerCUnmount={this.toggleCompareMount}
             spliceEnemyId={this.spliceEnemyId}
+             enemyId={this.state.enemyId}
             addMyAlly={this.addMyAlly}
-            myAlliesUrl={this.myAlliesUrl}
-            myAlliesdata={this.myAlliesdata}
+            myAlliesUrl={this.state.myAlliesUrl}
+            myAlliesdata={this.state.myAlliesdata}
           />
         ) : null}
 
-        <div>
-          {this.state.myAlliesUrl
-            ? this.state.myAlliesUrl.map((item, index) => (
-                <img key={index} src={item} alt="my allies" />
-              ))
-            : null}
-        </div>
+       
       </div>
     );
   }

@@ -3,7 +3,7 @@ import HeroList from "./HeroList";
 import Game from "./Game"
 
 
-function SelectHero({ superHero,mountGame,selectHeroOnClick,id_list,selectedHero,ourHero }) {
+function SelectHero({ superHero,mountGame,selectHeroOnClick,id_list,selectedHero,ourHeroUrl }) {
 
 
     return (
@@ -18,3 +18,4 @@ function SelectHero({ superHero,mountGame,selectHeroOnClick,id_list,selectedHero
 </div>
 );}
 
+export default SelectHero

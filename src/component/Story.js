@@ -1,33 +1,18 @@
 import React, { Component } from "react";
-import SelectHero from "./SelectHero";
 import axios from "axios";
-<<<<<<< HEAD
 import "./scss/evilRobot.scss";
-=======
-
-// import "./scss/evilRobot.scss";
->>>>>>> 420fad63e7c7fbedbbf38a138a55fd472ce33b4c
-import evilRobot from "./images/evilRobot.svg";
-import Game from "./Game";
+import SelectHero from "./SelectHero"
+import evilRobot from "./images/evilRobot.svg"
 
 class Story extends Component {
   state = {
     id_list: [589, 720, 165, 638, 309, 356, 107, 238, 643],
     superHero: [],
     selectedHero: "",
-<<<<<<< HEAD
-    ourHero: "",
-
-
-    //mount toggle
-    mountHero: false,
-    mountGame:false
-
-=======
     mountHero: false,
     mountGame: false,
     ourHeroUrl: ""
->>>>>>> 420fad63e7c7fbedbbf38a138a55fd472ce33b4c
+
   };
 
   componentDidMount=()=> {
@@ -54,7 +39,7 @@ class Story extends Component {
       ),
       ourHero: chosenHero.image.url
     });
-<<<<<<< HEAD
+
     this.toggleMountGameMount()
   };
 
@@ -124,11 +109,9 @@ toggleMountGameMount=()=>{
 
               </div>
             </div>
-          </section>
-        )}
+          </section> }
 </div>
-    );
-  }
-}
+  
+  )}}
 export default Story;
 

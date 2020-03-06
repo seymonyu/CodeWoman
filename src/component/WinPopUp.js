@@ -2,7 +2,7 @@ import React from "react";
 import "./scss/winPopUp.scss";
 import winPopUp from "./images/winPopUp.svg";
 
-const WinPopUp = () => {
+const WinPopUp = ({answered,handlerGameFlow,handlerQUnmount}) => {
   return (
     <body>
       <div class="pop--bg">
@@ -60,9 +60,9 @@ const WinPopUp = () => {
               </div>
               <div class="circle--wrap">
                 <div class="blob"></div>
-                <button type="button" class="circle--typo btn btn-link">
-                  Next!
-                </button>
+     <button type="button" class="circle--typo btn btn-link"
+      onClick={answered === 1?handlerGameFlow:handlerQUnmount}>Next</button>
+
               </div>
             </div>
           </div>
