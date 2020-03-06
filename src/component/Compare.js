@@ -42,7 +42,7 @@ class Compare extends React.Component {
   }
 
   componentDidMount() {
-    const avatarId = this.props.avatarId;
+    const avatarId = this.props.selectedHero;
     axios.get(`/${access_token}/${avatarId}`).then(res => {
       this.setState({ myChar: res.data });
     });
