@@ -18,7 +18,6 @@ class Compare extends Component {
         },
         name: ""
       },
-
       enemy: {
         powerstats: {
           inteligence: "",
@@ -38,7 +37,6 @@ class Compare extends Component {
     this.componentDidMount = this.componentDidMount.bind(this);
     this.handlerunmount = this.handlerunmount.bind(this);
   }
-
   componentDidMount() {
     const selectedHero = this.props.selectedHero;
     const enemyChar = this.props.enemyId[
@@ -55,11 +53,9 @@ class Compare extends Component {
       })
       .then(console.log(this.state.enemy));
   }
-
   result(myStats, enemyStats) {
     if (myStats >= enemyStats) {
       this.setState({ flag: 1 });
-
       this.props.addMyAlly();
     } else {
       this.setState({ flag: 2 });

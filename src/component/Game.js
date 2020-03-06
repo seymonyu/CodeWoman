@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Compare from "./Compare";
 import Questions from "./Questions";
 import axios from "axios";
+import GameStory from "./GameStory";
 
 const questionsList = [
   {
@@ -93,28 +94,29 @@ function getQuestion(questionsList) {
 
 class Game extends Component {
   state = {
-    game_flow_array: [1, 2, 3, 4, 5, 6],
     id_list: [],
     answered: 0, // 0 - unanswered, 1 - correct, 2 - incorrect
     myAllies: [],
     myAlliesUrl: [],
-    questionsMount: false,
-    compareMount: false,
     forward_flag: 0,
     enemyId: [423, 119, 598, 251, 346, 222, 149, 180],
     myAlliesdata: []
   };
 
-  componentDidMount() {
+  handlerGameFlow = () => {
+    this.setState({ forward_flag: this.state.forward_flag + 1 });
+  };
+
+  spliceEnemyId = enemyChar => {
     this.setState({
-      answered: 0,
-      id_list: this.props.id_list,
-      forward_flag: 0
+      enemyId: this.state.enemyId.filter(item => item !== parseInt(enemyChar))
     });
-  }
-  handleStartGame = () => {
+  };
+
+  toggleQuestionsMount = () => {
     this.setState({
-      forward_flag: 1
+      questionsMount: !this.state.questionsMount,
+      answered: 0
     });
   };
   spliceEnemyId = enemyChar => {
@@ -122,30 +124,13 @@ class Game extends Component {
       enemyId: this.state.enemyId.filter(item => item !== parseInt(enemyChar))
     });
   };
-  toggleQuestionsMount = () => {
-    this.setState({
-      questionsMount: !this.state.questionsMount,
-      forward_flag: this.state.forward_flag + 1,
-      answered: 0
-    });
-  };
-  toggleCompareMount = () => {
-    this.setState({
-      compareMount: !this.state.compareMount
-    });
-    this.state.forward_flag === 6
-      ? this.setState({ forward_flag: 0 })
-      : this.setState({ forward_flag: this.state.forward_flag + 1 });
-  };
 
   addMyAlly = () => {
     let ally = this.state.id_list[0];
     this.setState({
       myAllies: [...this.state.myAllies, this.state.id_list[0]],
-
       id_list: this.state.id_list.splice(1, this.state.id_list.length)
     });
-
     console.log("i am here");
     return axios
       .get(`http://superheroapi.com/api.php/10158157868173814/${ally}`)
@@ -165,7 +150,9 @@ class Game extends Component {
     if (question.A) {
       this.setState({ answered: 1 });
       this.addMyAlly();
-    } else this.setState({ answered: 2 });
+    } else {
+      this.setState({ answered: 2 });
+    }
   };
 
   handleNo = question => {
@@ -181,9 +168,18 @@ class Game extends Component {
   render() {
     return (
       <div>
-        <p>Lets start the game</p>
-        <img src={this.props.ourHeroUrl} alt="super hero" />
-        <button onClick={this.handleStartGame}>Start</button>
+        {this.state.forward_flag === 0 ||
+        this.state.forward_flag === 2 ||
+        this.state.forward_flag === 4 ||
+        this.state.forward_flag === 6 ||
+        this.state.forward_flag === 8 ? (
+          <GameStory
+            forward_flag={this.state.forward_flag}
+            ourHero={this.props.ourHero}
+            handlerGameFlow={this.handlerGameFlow}
+          />
+        ) : null}
+
         {this.state.forward_flag === 1 ? (
           <Questions
             question={getQuestion(questionsList)}
@@ -197,15 +193,16 @@ class Game extends Component {
         {this.state.forward_flag === 2 ? (
           <Compare
             selectedHero={this.props.selectedHero}
+            handlerGameFlow={this.handlerGameFlow}
             handlerCUnmount={this.toggleCompareMount}
-            enemyId={this.state.enemyId}
             spliceEnemyId={this.spliceEnemyId}
             addMyAlly={this.addMyAlly}
             myAlliesUrl={this.myAlliesUrl}
             myAlliesdata={this.myAlliesdata}
           />
         ) : null}
-        {this.state.forward_flag === 3 ? (
+
+        {this.state.forward_flag === 5 ? (
           <Questions
             question={getQuestion(questionsList)}
             handleYes={this.handleYes}
@@ -215,18 +212,18 @@ class Game extends Component {
             myAlliesUrl={this.state.myAlliesUrl}
           />
         ) : null}
-        {this.state.forward_flag === 4 ? (
+        {this.state.forward_flag === 6 ? (
           <Compare
             selectedHero={this.props.selectedHero}
+            handlerGameFlow={this.handlerGameFlow}
             handlerCUnmount={this.toggleCompareMount}
-            enemyId={this.state.enemyId}
             spliceEnemyId={this.spliceEnemyId}
             addMyAlly={this.addMyAlly}
             myAlliesUrl={this.myAlliesUrl}
             myAlliesdata={this.myAlliesdata}
           />
         ) : null}
-        {this.state.forward_flag === 5 ? (
+        {this.state.forward_flag === 8 ? (
           <Questions
             question={getQuestion(questionsList)}
             handleYes={this.handleYes}
@@ -236,11 +233,11 @@ class Game extends Component {
             myAlliesUrl={this.myAlliesUrl}
           />
         ) : null}
-        {this.state.forward_flag === 6 ? (
+        {this.state.forward_flag === 10 ? (
           <Compare
             selectedHero={this.props.selectedHero}
+            handlerGameFlow={this.handlerGameFlow}
             handlerCUnmount={this.toggleCompareMount}
-            enemyId={this.state.enemyId}
             spliceEnemyId={this.spliceEnemyId}
             addMyAlly={this.addMyAlly}
             myAlliesUrl={this.myAlliesUrl}

@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import SelectHero from "./SelectHero";
-
 import axios from "axios";
+<<<<<<< HEAD
+import "./scss/evilRobot.scss";
+=======
 
 // import "./scss/evilRobot.scss";
+>>>>>>> 420fad63e7c7fbedbbf38a138a55fd472ce33b4c
 import evilRobot from "./images/evilRobot.svg";
 import Game from "./Game";
 
@@ -12,12 +15,22 @@ class Story extends Component {
     id_list: [589, 720, 165, 638, 309, 356, 107, 238, 643],
     superHero: [],
     selectedHero: "",
+<<<<<<< HEAD
+    ourHero: "",
+
+
+    //mount toggle
+    mountHero: false,
+    mountGame:false
+
+=======
     mountHero: false,
     mountGame: false,
-    ourHero: ""
+    ourHeroUrl: ""
+>>>>>>> 420fad63e7c7fbedbbf38a138a55fd472ce33b4c
   };
 
-  componentDidMount() {
+  componentDidMount=()=> {
     this.state.id_list.map(element => {
       return axios
         .get(`http://superheroapi.com/api.php/10158157868173814/${element}`)
@@ -26,7 +39,7 @@ class Story extends Component {
           this.setState({
             superHero: [...this.state.superHero, temp],
             selectedHero: temp.id,
-            ourHero: temp.image.url
+            ourHeroUrl: temp.image.url
           });
         })
         .catch(error => console.error(`something went wrong: ${error}`));
@@ -41,44 +54,52 @@ class Story extends Component {
       ),
       ourHero: chosenHero.image.url
     });
-    this.toggleMountGame();
+<<<<<<< HEAD
+    this.toggleMountGameMount()
   };
+
+
+
   toggleMountSelectHero = () => {
     this.setState({ mountHero: !this.state.mountHero });
   };
-  toggleMountGame = () => {
-    this.setState({ mountGame: !this.state.mountGame });
-  };
+  
+toggleMountGameMount=()=>{
+      this.setState({ mountGame: !this.state.mountGame});
+
+}
 
   render() {
     return (
       <div>
-        {this.state.mountHero ? (
-          <SelectHero
-            superHero={this.state.superHero}
-            selectHero={this.selectHeroOnClick}
-            id_list={this.state.id_list}
-            selectedHero={this.state.selectedHero}
-            ourHeroUrl={this.state.ourHero}
-            mountGame={this.state.mountGame}
-          />
-        ) : (
-          <section className="robot">
-            <div className="robot--wrap container-fluid">
-              <div className="robot--row row">
-                <div className="robot--col_left col">
-                  <div className="robot--wrapper">
-                    <img className="robot--eye" src={evilRobot} alt="Eye" />
-                  </div>
+
+      {this.state.mountHero ===true?
+                  <SelectHero
+                    superHero={this.state.superHero}
+                    selectHeroOnClick={this.selectHeroOnClick}
+                    mountGame={this.state.mountGame}
+                    id_list={this.state.id_list}
+                    selectedHero={this.state.selectedHero}
+                    ourHeroUrl={this.state.ourHeroUrl}
+                    
+                  />:
+               
+      <section className="robot">
+        <div className="robot--wrap container-fluid">
+          <div className="robot--row row">
+            <div className="robot--col_left col">
+              <div className="robot--wrapper">
+                <img className="robot--eye" src={evilRobot} alt="Eye" />
+              </div>
+            </div>
+            <div className="robot--col_right col">
+              <div className="speech-bubble">
+                <div className="typewriter-first">
+                  <h1>I have all my heroes fighting for me.</h1>
                 </div>
-                <div className="robot--col_right col">
-                  <div className="speech-bubble">
-                    <div className="typewriter-first">
-                      <h1>I have all my heroes fighting for me.</h1>
-                    </div>
-                    <div className="typewriter-second">
-                      <h1>You have no chance.</h1>
-                    </div>
+                <div className="typewriter-second">
+                  <h1>You have no chance.</h1>
+                   </div>
                     <div className="typewriter-third">
                       <h1>You will never have a job in tech!</h1>
                     </div>
@@ -100,12 +121,14 @@ class Story extends Component {
                     </button>
                   </div>
                 </div>
+
               </div>
             </div>
           </section>
         )}
-      </div>
+</div>
     );
   }
 }
 export default Story;
+
