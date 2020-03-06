@@ -26,7 +26,7 @@ const StyleQuestions = () => {
             <button type="button" className="question--btn btn btn-link">
               Yes
             </button>
-            <button type="button" className="uestion--btn btn btn-link">
+            <button type="button" className="question--btn btn btn-link">
               No
             </button>
             <div className="allies-all">
