@@ -118,6 +118,7 @@ class Compare extends React.Component {
           <button onClick={this.getStrength}>Strength</button>
           <button onClick={this.getSpeed}>Speed</button>
         </div>
+        <button onClick={this.props.handlerCUnmount}>close</button>
       </div>
     );
   }

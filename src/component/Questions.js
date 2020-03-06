@@ -1,30 +1,35 @@
-import React from "react";
+import React, { Component } from "react";
 import RandomQuestion from "./RandomQuestion";
 import Result from "./Result";
 
-const Questions = ({
-  question,
-  handleYes,
-  handleNo,
-  answered,
-  handlerQUnmount
-}) => {
-  return (
-    <div className="Questions">
-      <h1>hello</h1>
+class Questions extends Component {
+  render() {
+    return (
+      <div className="Questions">
+        <h1>hello</h1>
 
-      <RandomQuestion
-        question={question}
-        handleYes={handleYes}
-        handleNo={handleNo}
-      />
+        <RandomQuestion
+          question={this.props.question}
+          handleYes={this.props.handleYes}
+          handleNo={this.props.handleNo}
+        />
 
-      <div>
-        {answered === 1 || answered === 2 ? <Result result={answered} /> : null}
+        <div>
+          {this.props.answered === 1 || this.props.answered === 2 ? (
+            <Result result={this.props.answered} />
+          ) : null}
+        </div>
+        <button onClick={this.props.handlerQUnmount}>close</button>
+        <div>
+          {this.props.myAlliesUrl
+            ? this.props.myAlliesUrl.map((item, index) => (
+                <img key={index} src={item} alt="my allies" />
+              ))
+            : null}
+        </div>
       </div>
-      <button onClick={handlerQUnmount}>close</button>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Questions;

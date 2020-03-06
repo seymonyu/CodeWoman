@@ -100,7 +100,8 @@ class Game extends Component {
     myAlliesUrl: [],
     questionsMount: false,
     compareMount: false,
-    forward_flag: 0
+    forward_flag: 0,
+    myAlliesdata: []
   };
 
   componentDidMount() {
@@ -144,9 +145,11 @@ class Game extends Component {
       .get(`http://superheroapi.com/api.php/10158157868173814/${ally}`)
       .then(response => {
         let temp = response.data.image.url;
+        let temp2 = response.data.powerstats;
         console.log(temp);
         this.setState({
-          myAlliesUrl: [...this.state.myAlliesUrl, temp]
+          myAlliesUrl: [...this.state.myAlliesUrl, temp],
+          myAlliesdata: [...this.state.myAlliesdata, temp2]
         });
       })
       .catch(error => console.error(`something went wrong: ${error}`));
@@ -182,6 +185,7 @@ class Game extends Component {
             handleNo={this.handleNo}
             answered={this.state.answered}
             handlerQUnmount={this.toggleQuestionsMount}
+            myAlliesUrl={this.state.myAlliesUrl}
           />
         ) : null}
         {this.state.forward_flag === 2 ? (
@@ -197,6 +201,7 @@ class Game extends Component {
             handleNo={this.handleNo}
             answered={this.state.answered}
             handlerQUnmount={this.toggleQuestionsMount}
+            myAlliesUrl={this.state.myAlliesUrl}
           />
         ) : null}
         {this.state.forward_flag === 4 ? (
@@ -212,6 +217,7 @@ class Game extends Component {
             handleNo={this.handleNo}
             answered={this.state.answered}
             handlerQUnmount={this.toggleQuestionsMount}
+            myAlliesUrl={this.myAlliesUrl}
           />
         ) : null}
         {this.state.forward_flag === 6 ? (
@@ -220,14 +226,6 @@ class Game extends Component {
             handlerCUnmount={this.toggleCompareMount}
           />
         ) : null}
-
-        <div>
-          {this.state.myAlliesUrl
-            ? this.state.myAlliesUrl.map((item, index) => (
-                <img key={index} src={item} alt="my allies" />
-              ))
-            : null}
-        </div>
       </div>
     );
   }
