@@ -1,26 +1,21 @@
 import React,{Component} from "react";
 import "./scss/start.scss";
 import Eye from "./images/Eye.svg";
-import SelectHero from "./SelectHero"
+import Story from "./Story"
 
 class Start extends Component {
-constructor(props){
-  super(props)
-  this.state={
-    mountHero:false
+state={
+    mountStory:false
   }
 
-this.handlermountHero = this.handlermountHero.bind(this);
-}
-
-handlermountHero(){
-  this.setState({mountHero:!this.state.mountHero})
+toggleStoryMount=()=>{
+  this.setState({mountStory:!this.state.mountStory})
 }
 
 render(){
   return (
     <div>
-        {this.state.mountHero===true?<SelectHero/> : 
+        {this.state.mountStory===true?<Story/> : 
     <section className="start">
 
       <title>Artechmiss</title>
@@ -37,7 +32,7 @@ render(){
             <p className="start--typo">Heroine</p>
             <div className="circle--wrap">
               <div className="blob"></div>
-              <button onClick={this.handlermountHero}
+              <button onClick={this.toggleStoryMount}
                 type="button"
                  className="circle--typo btn btn-link">
                 Play the Game
