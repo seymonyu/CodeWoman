@@ -3,6 +3,7 @@ import Compare from "./Compare";
 import Questions from "./Questions";
 import axios from "axios";
 import GameStory from "./GameStory";
+import "./Game.css";
 
 const questionsList = [
   {
