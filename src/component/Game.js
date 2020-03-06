@@ -3,6 +3,8 @@ import Compare from "./Compare";
 import Questions from "./Questions";
 import axios from "axios";
 import AngryRobot from "./AngryRobot"
+import evilRobot from "./images/evilRobot.svg"
+
 
 const questionsList = [
   {
