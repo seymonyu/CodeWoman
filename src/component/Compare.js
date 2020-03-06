@@ -59,11 +59,10 @@ class Compare extends Component {
   result(myStats, enemyStats) {
     if (myStats >= enemyStats) {
       this.setState({ flag: 1 });
-      console.log("You Win");
+
       this.props.addMyAlly();
     } else {
       this.setState({ flag: 2 });
-      console.log("You lost");
     }
   }
   handlerunmount() {

@@ -101,7 +101,8 @@ class Game extends Component {
     questionsMount: false,
     compareMount: false,
     forward_flag: 0,
-    enemyId: [423, 119, 598, 251, 346, 222, 149, 180]
+    enemyId: [423, 119, 598, 251, 346, 222, 149, 180],
+    myAlliesdata: []
   };
 
   componentDidMount() {
@@ -150,9 +151,11 @@ class Game extends Component {
       .get(`http://superheroapi.com/api.php/10158157868173814/${ally}`)
       .then(response => {
         let temp = response.data.image.url;
+        let temp2 = response.data.powerstats;
         console.log(temp);
         this.setState({
-          myAlliesUrl: [...this.state.myAlliesUrl, temp]
+          myAlliesUrl: [...this.state.myAlliesUrl, temp],
+          myAlliesdata: [...this.state.myAlliesdata, temp2]
         });
       })
       .catch(error => console.error(`something went wrong: ${error}`));
@@ -198,6 +201,7 @@ class Game extends Component {
             spliceEnemyId={this.spliceEnemyId}
             addMyAlly={this.addMyAlly}
             myAlliesUrl={this.myAlliesUrl}
+            myAlliesdata={this.myAlliesdata}
           />
         ) : null}
         {this.state.forward_flag === 3 ? (
@@ -217,6 +221,7 @@ class Game extends Component {
             spliceEnemyId={this.spliceEnemyId}
             addMyAlly={this.addMyAlly}
             myAlliesUrl={this.myAlliesUrl}
+            myAlliesdata={this.myAlliesdata}
           />
         ) : null}
         {this.state.forward_flag === 5 ? (
@@ -236,6 +241,7 @@ class Game extends Component {
             spliceEnemyId={this.spliceEnemyId}
             addMyAlly={this.addMyAlly}
             myAlliesUrl={this.myAlliesUrl}
+            myAlliesdata={this.myAlliesdata}
           />
         ) : null}
 
