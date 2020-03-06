@@ -20,19 +20,26 @@ $border-thin: 1px;
 .game_over_text {
     font-size:$h1;
     color:#EC5C56;
-    width: 70%;
+    padding-left: 30%;
+    padding-top: 10%;
     
 }
 
-.gameOver_container {
+.gameOver_parent {
    
-    
-    //flex-direction: column;
+    flex-direction: column;
+    display: flex;
     background-color: $grey;
-    width: 100%;
+    width:100vw;
+    height:100vh;
 
 
 }
+
+.btn_parent {
+    padding-left: 45%;
+}
+
 
 .btn_close {
     $font: “Roboto”;
