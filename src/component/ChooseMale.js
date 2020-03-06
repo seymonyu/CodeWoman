@@ -6,6 +6,9 @@ function ChooseMale({ handlerOnClickMale }) {
   return (
     <div className="gameOver_parent">      
     
+    <img className="giphy" src={giphy} alt="gif" />
+    
+    
     
       <h1 className="game_over_text">Game Over!</h1>
       <div className="btn_parent_gameover">
@@ -14,6 +17,7 @@ function ChooseMale({ handlerOnClickMale }) {
           Close
         </button>
       </div>
+      
     </div>
   );
 }
