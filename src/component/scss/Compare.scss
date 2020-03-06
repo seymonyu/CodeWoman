@@ -1,0 +1,105 @@
+.Avatars h1 {
+  color: #1c447b;
+}
+.Avatars img {
+  height: 330px;
+  border-radius: 5px;
+  border: 5px solid #816452;
+}
+
+.displayBlock {
+  background-color: #ec5c56;
+
+  font-family: "Roboto";
+}
+li {
+  list-style-type: none;
+  font-size: 20pt;
+  color: #1c447b;
+}
+.Avatars div {
+  display: inline-block;
+  margin: 20px;
+  margin-left: 320px;
+}
+.Buttons {
+  background-color: #ec5c56;
+  align-items: center;
+}
+.Buttons button {
+  background-color: #dddddd;
+  width: 200px;
+  margin-left: 20px;
+  height: 50px;
+  border-radius: 5px;
+  border: 5px solid #816452;
+  text-align: center;
+  color: #1c447b;
+  font-size: 20pt;
+  margin-left: 200px;
+}
+.allies-list img {
+  height: 200px;
+  padding-left: 30px;
+}
+.allies-list {
+  margin: 30px;
+}
+.displayBlock .Avatar button {
+  background-color: #dddddd;
+  width: 200px;
+  margin-left: 20px;
+  height: 50px;
+  border-radius: 5px;
+  border: 5px solid #816452;
+  text-align: center;
+  color: #1c447b;
+  font-size: 20pt;
+  margin-top: 10px;
+  margin-left: 600px;
+}
+.container_avatar img {
+  width: 200px;
+}
+.container_avatar {
+  display: inline-block;
+}
+.select_hero_body {
+  font-family: "Roboto";
+  background-color: #ec5c56;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  font-size: 2rem;
+  color: #1c447b;
+}
+
+.hero_container {
+  background-color: #dddddd;
+
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  margin-left: 15%;
+  height: 80%;
+  justify-content: space-evenly;
+  margin-bottom: 100px;
+}
+.container_avatar img {
+  width: 150px;
+}
+.our_hero {
+  width: 150px;
+}
+
+.buttong {
+  background-color: #dddddd;
+  width: 100px;
+
+  height: 50px;
+  border-radius: 5px;
+  border: 5px solid #816452;
+  text-align: center;
+  color: #1c447b;
+  font-size: 20pt;
+}
