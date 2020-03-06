@@ -33,9 +33,9 @@ class Compare extends Component {
       flag: 0,
       mount: false,
       id_list: [589, 720, 165, 638, 309, 356, 107, 238, 643],
-    
-    myAllies: [],
-    noOfAllies: 0
+
+      myAllies: [],
+      noOfAllies: 0
     };
     this.result = this.result.bind(this);
     this.getIntelligence = this.getIntelligence.bind(this);
@@ -60,6 +60,9 @@ class Compare extends Component {
       .get(`/${access_token}/${enemyChar}`)
       .then(res => {
         this.setState({ enemy: res.data });
+        this.setState({
+          enemyId: this.state.enemyId.splice(1, this.state.enemyId.length)
+        });
       })
       .then(console.log(this.state.enemy));
   }
