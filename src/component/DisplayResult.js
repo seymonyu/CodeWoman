@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import GiveTheResult from "./GiveTheResult"
-
+import GiveTheResult from "./GiveTheResult";
 
 class DisplayResult extends Component {
-
   render() {
     return (
       <section >
@@ -14,8 +12,8 @@ class DisplayResult extends Component {
            mount={this.props.mount}
            handlerunmountStory={this.props.handlerunmountStory}
          />
-                
-      </section>
+         </section>
+        
     );
   }
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import Story from "./Story"
 
@@ -12,5 +13,4 @@ function GiveTheResult({flag,handlerunmount,handlerunmountStory,handlerunmountQu
 </div>
    }
    </div>)}
-
 export default GiveTheResult
