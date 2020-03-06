@@ -1,11 +1,12 @@
 import React from "react";
 import Compare from "./component/Compare"
-import SelectHero from "./component/SelectHero"
+//import SelectHero from "./component/SelectHero"
+import ChooseMale from "./component/ChooseMale"
 
 function App() {
   return(
      <div>
-     <SelectHero/>
+     <ChooseMale />
     
     </div>
     )
