@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./scss/Compare.scss";
 import HeroList from "./HeroList";
 import Game from "./Game";
 
@@ -21,10 +21,13 @@ function SelectHero({
           ourHeroUrl={ourHeroUrl}
         />
       ) : (
-        <div>
-          {superHero.map((item, index) => (
-            <HeroList key={index} obj={item} onClick={selectHero} />
-          ))}
+        <div className="select_hero_body">
+          <h1>Please choose our Hero!</h1>
+          <div className="hero_container">
+            {superHero.map((item, index) => (
+              <HeroList key={index} obj={item} onClick={selectHero} />
+            ))}
+          </div>
         </div>
       )}
     </div>

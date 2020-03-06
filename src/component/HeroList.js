@@ -1,4 +1,5 @@
 import React from "react";
+import "./scss/Compare.scss";
 
 const HeroList = ({ onClick, obj }) => {
   const SelectedOb = () => {

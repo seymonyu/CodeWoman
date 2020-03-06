@@ -180,10 +180,16 @@ class Game extends Component {
 
   render() {
     return (
-      <div>
+      <div className="select_hero_body">
         <p>Lets start the game</p>
-        <img src={this.props.ourHeroUrl} alt="super hero" />
-        <button onClick={this.handleStartGame}>Start</button>
+        <img
+          className="our_hero"
+          src={this.props.ourHeroUrl}
+          alt="super hero"
+        />
+        <button className="buttong" onClick={this.handleStartGame}>
+          Start
+        </button>
         {this.state.forward_flag === 1 ? (
           <Questions
             question={getQuestion(questionsList)}

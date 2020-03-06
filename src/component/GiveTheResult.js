@@ -1,15 +1,21 @@
 import React from "react";
-import WinPopUp from "./WinPopUp";
-import TryAgainPopUp from "./TryAgainPopUp";
 
-function GiveTheResult({ flag, handlerunmount, mount }) {
-  return (
-    <div>
-      {flag === 1 ? <WinPopUp handlerunmount={handlerunmount} /> : null}
-
-      {flag === 2 ? <TryAgainPopUp handlerunmount={handlerunmount} /> : null}
-    </div>
-  );
+function GiveTheResult({ flag, handlerunmount }) {
+  if (flag === 1) {
+    return (
+      <div>
+        <h1> You Win! </h1>
+        <button onClick={handlerunmount}>close</button>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <h1> You Lost</h1>
+        <button onClick={handlerunmount}>close</button>
+      </div>
+    );
+  }
 }
 
 export default GiveTheResult;

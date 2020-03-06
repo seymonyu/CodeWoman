@@ -19,7 +19,9 @@ class Questions extends Component {
             <Result result={this.props.answered} />
           ) : null}
         </div>
-        <button onClick={this.props.handlerQUnmount}>close</button>
+        <button className="buttong" onClick={this.props.handlerQUnmount}>
+          close
+        </button>
         <div>
           {this.props.myAlliesUrl
             ? this.props.myAlliesUrl.map((item, index) => (
