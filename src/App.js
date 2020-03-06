@@ -6,11 +6,12 @@ import Start from "./component/Start";
 import StyleQuestions from "./component/StyleQuestions";
 import WinPopUp from "./component/WinPopUp";
 import TryAgainPopUp from "./component/TryAgainPopUp";
+import Dance from "./component/Dance"
 
 function App() {
   return (
     <div className="App">
-      <TryAgainPopUp />
+      <Dance />
     </div>
   );
 }
