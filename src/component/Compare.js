@@ -31,7 +31,11 @@ class Compare extends Component {
         name: ""
       },
       flag: 0,
-      mount: false
+      mount: false,
+      id_list: [589, 720, 165, 638, 309, 356, 107, 238, 643],
+    
+    myAllies: [],
+    noOfAllies: 0
     };
     this.result = this.result.bind(this);
     this.getIntelligence = this.getIntelligence.bind(this);
@@ -40,7 +44,13 @@ class Compare extends Component {
     this.componentDidMount = this.componentDidMount.bind(this);
     this.handlerunmount = this.handlerunmount.bind(this);
   }
-
+  addMyAlly() {
+    this.setState({
+      myAllies: [...this.state.myAllies, this.state.id_list[0]],
+      noOfAllies: this.state.noOfAllies + 1,
+      id_list: this.state.id_list.splice(1, this.state.id_list.length)
+    });
+  }
   componentDidMount() {
     const avatarId = this.props.avatarId;
     axios.get(`/${access_token}/${avatarId}`).then(res => {
@@ -56,6 +66,7 @@ class Compare extends Component {
 
   result(myStats, enemyStats) {
     if (myStats >= enemyStats) {
+      this.addMyAlly();
       this.setState({ flag: 1 });
       console.log("You Win");
     } else {
