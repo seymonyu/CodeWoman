@@ -101,6 +101,7 @@ class Game extends Component {
     questionsMount: false,
     compareMount: false,
     forward_flag: 0,
+    enemyId: [423, 119, 598, 251, 346, 222, 149, 180],
     myAlliesdata: []
   };
 
@@ -114,6 +115,11 @@ class Game extends Component {
   handleStartGame = () => {
     this.setState({
       forward_flag: 1
+    });
+  };
+  spliceEnemyId = enemyChar => {
+    this.setState({
+      enemyId: this.state.enemyId.filter(item => item !== parseInt(enemyChar))
     });
   };
   toggleQuestionsMount = () => {
@@ -132,7 +138,7 @@ class Game extends Component {
       : this.setState({ forward_flag: this.state.forward_flag + 1 });
   };
 
-  addMyAlly() {
+  addMyAlly = () => {
     let ally = this.state.id_list[0];
     this.setState({
       myAllies: [...this.state.myAllies, this.state.id_list[0]],
@@ -153,7 +159,7 @@ class Game extends Component {
         });
       })
       .catch(error => console.error(`something went wrong: ${error}`));
-  }
+  };
 
   handleYes = question => {
     if (question.A) {
@@ -192,6 +198,11 @@ class Game extends Component {
           <Compare
             selectedHero={this.props.selectedHero}
             handlerCUnmount={this.toggleCompareMount}
+            enemyId={this.state.enemyId}
+            spliceEnemyId={this.spliceEnemyId}
+            addMyAlly={this.addMyAlly}
+            myAlliesUrl={this.myAlliesUrl}
+            myAlliesdata={this.myAlliesdata}
           />
         ) : null}
         {this.state.forward_flag === 3 ? (
@@ -208,6 +219,11 @@ class Game extends Component {
           <Compare
             selectedHero={this.props.selectedHero}
             handlerCUnmount={this.toggleCompareMount}
+            enemyId={this.state.enemyId}
+            spliceEnemyId={this.spliceEnemyId}
+            addMyAlly={this.addMyAlly}
+            myAlliesUrl={this.myAlliesUrl}
+            myAlliesdata={this.myAlliesdata}
           />
         ) : null}
         {this.state.forward_flag === 5 ? (
@@ -224,6 +240,11 @@ class Game extends Component {
           <Compare
             selectedHero={this.props.selectedHero}
             handlerCUnmount={this.toggleCompareMount}
+            enemyId={this.state.enemyId}
+            spliceEnemyId={this.spliceEnemyId}
+            addMyAlly={this.addMyAlly}
+            myAlliesUrl={this.myAlliesUrl}
+            myAlliesdata={this.myAlliesdata}
           />
         ) : null}
       </div>

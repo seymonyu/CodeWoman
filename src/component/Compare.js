@@ -3,9 +3,7 @@ import axios from "axios";
 import "./scss/Compare.scss";
 import DisplayResult from "./DisplayResult";
 const access_token = "2560077217542151";
-const enemyId = ["423", "119", "598", "251", "346", "222", "149", "180"];
-const enemyChar = enemyId[Math.floor(Math.random() * enemyId.length)];
-class Compare extends React.Component {
+class Compare extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,8 +40,12 @@ class Compare extends React.Component {
   }
 
   componentDidMount() {
-    const avatarId = this.props.selectedHero;
-    axios.get(`/${access_token}/${avatarId}`).then(res => {
+    const selectedHero = this.props.selectedHero;
+    const enemyChar = this.props.enemyId[
+      Math.floor(Math.random() * this.props.enemyId.length)
+    ];
+    this.props.spliceEnemyId(enemyChar);
+    axios.get(`/${access_token}/${selectedHero}`).then(res => {
       this.setState({ myChar: res.data });
     });
     axios
@@ -57,10 +59,10 @@ class Compare extends React.Component {
   result(myStats, enemyStats) {
     if (myStats >= enemyStats) {
       this.setState({ flag: 1 });
-      console.log("You Win");
+
+      this.props.addMyAlly();
     } else {
       this.setState({ flag: 2 });
-      console.log("You lost");
     }
   }
   handlerunmount() {
@@ -73,13 +75,6 @@ class Compare extends React.Component {
     );
     this.setState({ mount: true });
   }
-  getSpeed() {
-    this.result(
-      this.state.myChar.powerstats.speed,
-      this.state.enemy.powerstats.speed
-    );
-    this.setState({ mount: true });
-  }
   getStrength() {
     this.result(
       this.state.myChar.powerstats.strength,
@@ -87,6 +82,14 @@ class Compare extends React.Component {
     );
     this.setState({ mount: true });
   }
+  getSpeed() {
+    this.result(
+      this.state.myChar.powerstats.speed,
+      this.state.enemy.powerstats.speed
+    );
+    this.setState({ mount: true });
+  }
+
   render() {
     return (
       <div className="displayBlock">
@@ -118,7 +121,15 @@ class Compare extends React.Component {
           <button onClick={this.getStrength}>Strength</button>
           <button onClick={this.getSpeed}>Speed</button>
         </div>
-        <button onClick={this.props.handlerCUnmount}>close</button>
+        <button onClick={this.props.handlerCUnmount}>Close</button>
+
+        <div className="allies-list">
+          {this.props.myAlliesUrl
+            ? this.props.myAlliesUrl.map((item, index) => (
+                <img key={index} src={item} alt="my allies" />
+              ))
+            : null}
+        </div>
       </div>
     );
   }
