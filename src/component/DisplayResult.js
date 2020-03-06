@@ -8,6 +8,7 @@ class DisplayResult extends Component {
         <GiveTheResult
           flag={this.props.flag}
           handlerunmount={this.props.handlerunmount}
+          mount={this.props.mount}
         />
       </section>
     );
