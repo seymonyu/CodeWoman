@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import SelectHero from "./SelectHero";
-import Compare from "./Compare";
 
 import axios from "axios";
 
@@ -13,8 +12,8 @@ class Story extends Component {
     id_list: [589, 720, 165, 638, 309, 356, 107, 238, 643],
     superHero: [],
     selectedHero: "",
-    selectHeroMount: false,
-    gameUnmount: false,
+    mountHero: false,
+    mountGame: false,
     ourHero: ""
   };
 
@@ -42,35 +41,26 @@ class Story extends Component {
       ),
       ourHero: chosenHero.image.url
     });
+    this.toggleMountGame();
   };
-  handlerUnmountSelectHero = () => {
-    let flag = !this.state.selectHeroMount;
-
-    this.setState({ selectHeroMount: flag });
+  toggleMountSelectHero = () => {
+    this.setState({ mountHero: !this.state.mountHero });
   };
-  handlerUnmountGame = () => {
-    this.setState({ gameUnmount: !this.state.gameUnmount });
+  toggleMountGame = () => {
+    this.setState({ mountGame: !this.state.mountGame });
   };
 
   render() {
     return (
       <div>
-        <Compare />
-        {this.state.selectHeroMount ? (
-          // <SelectHero
-          //   superHero={this.state.superHero}
-          //   selectHeroUnmount={this.handlerUnmountSelectHero}
-          //   selectHero={this.selectHeroOnClick}
-          //   id_list={this.state.id_list}
-          //   selectedHero={this.state.selectedHero}
-          //   gameUnmount={this.handlerUnmountGame}
-          //   ourHeroUrl={this.state.ourHero}
-          // />
-          <Game
+        {this.state.mountHero ? (
+          <SelectHero
+            superHero={this.state.superHero}
+            selectHero={this.selectHeroOnClick}
             id_list={this.state.id_list}
             selectedHero={this.state.selectedHero}
-            gameUnmount={this.handlerUnmountGame}
             ourHeroUrl={this.state.ourHero}
+            mountGame={this.state.mountGame}
           />
         ) : (
           <section className="robot">
@@ -104,7 +94,7 @@ class Story extends Component {
                     <button
                       type="button"
                       className="circle--typo btn btn-link"
-                      onClick={this.handlerUnmountSelectHero}
+                      onClick={this.toggleMountSelectHero}
                     >
                       Choose a heroine
                     </button>
