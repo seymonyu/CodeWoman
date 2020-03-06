@@ -3,6 +3,7 @@ import Compare from "./Compare";
 import Questions from "./Questions";
 import axios from "axios";
 import GameStory from "./GameStory"
+import AngryRobot from "./AngryRobot"
 
 const questionsList = [
   {
@@ -179,9 +180,9 @@ componentDidMount(){
   render() {
     return (
       <div>
-       {this.state.forward_flag === 0||this.state.forward_flag === 2 || this.state.forward_flag === 4||this.state.forward_flag === 6||this.state.forward_flag === 8?
-      <GameStory forward_flag={this.state.forward_flag} ourHeroUrl={this.props.ourHeroUrl} handlerGameFlow={this.handlerGameFlow}/>: null}
-
+       {this.state.forward_flag === 0||{this.state.forward_flag === 2 || this.state.forward_flag === 4||this.state.forward_flag === 6||this.state.forward_flag === 8?
+      <AngryRobot forward_flag={this.state.forward_flag} ourHeroUrl={this.props.ourHeroUrl} handlerGameFlow={this.handlerGameFlow/>/>: null}
+          
         {this.state.forward_flag === 1 ? 
           <Questions
             question={getQuestion(questionsList)}
