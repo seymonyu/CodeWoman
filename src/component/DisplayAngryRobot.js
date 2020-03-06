@@ -1,8 +1,10 @@
 import React from 'react'
 import "./scss/angryRobot.scss";
 import angryRobot from "./images/angryRobot.svg";
+import evilRobot from "./images/evilRobot.svg"
 
-funtcion DisplayAngryRobot({forward_flag,handlerGameFlow,ourHeroUrl}){
+
+function DisplayAngryRobot({forward_flag,handlerGameFlow,ourHeroUrl}){
     return(<body>
       <section className="robot">
         <div className="robot--wrap container-fluid">
@@ -49,3 +51,4 @@ funtcion DisplayAngryRobot({forward_flag,handlerGameFlow,ourHeroUrl}){
       </section>
     </body>)
 }
+export default DisplayAngryRobot
