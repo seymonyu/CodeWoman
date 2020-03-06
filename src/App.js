@@ -1,6 +1,9 @@
 import React from "react";
 
+
 import Start from "./component/Start";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 function App() {
   return (
@@ -8,8 +11,7 @@ function App() {
 
 
  <Start />
-         
-
+    
     </div>
   );
 }
