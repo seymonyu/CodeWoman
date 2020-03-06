@@ -201,8 +201,8 @@ class Game extends Component {
             enemyId={this.state.enemyId}
             spliceEnemyId={this.spliceEnemyId}
             addMyAlly={this.addMyAlly}
-            myAlliesUrl={this.myAlliesUrl}
-            myAlliesdata={this.myAlliesdata}
+            myAlliesUrl={this.state.myAlliesUrl}
+            myAlliesdata={this.state.myAlliesdata}
           />
         ) : null}
         {this.state.forward_flag === 3 ? (
@@ -222,8 +222,8 @@ class Game extends Component {
             enemyId={this.state.enemyId}
             spliceEnemyId={this.spliceEnemyId}
             addMyAlly={this.addMyAlly}
-            myAlliesUrl={this.myAlliesUrl}
-            myAlliesdata={this.myAlliesdata}
+            myAlliesUrl={this.state.myAlliesUrl}
+            myAlliesdata={this.state.myAlliesdata}
           />
         ) : null}
         {this.state.forward_flag === 5 ? (
@@ -243,8 +243,8 @@ class Game extends Component {
             enemyId={this.state.enemyId}
             spliceEnemyId={this.spliceEnemyId}
             addMyAlly={this.addMyAlly}
-            myAlliesUrl={this.myAlliesUrl}
-            myAlliesdata={this.myAlliesdata}
+            myAlliesUrl={this.state.myAlliesUrl}
+            myAlliesdata={this.state.myAlliesdata}
           />
         ) : null}
       </div>
