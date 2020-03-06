@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SelectHero from "./SelectHero";
+import Compare from "./Compare";
 
 import axios from "axios";
 
@@ -54,6 +55,7 @@ class Story extends Component {
   render() {
     return (
       <div>
+        <Compare />
         {this.state.selectHeroMount ? (
           // <SelectHero
           //   superHero={this.state.superHero}

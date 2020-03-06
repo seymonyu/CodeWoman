@@ -52,17 +52,14 @@ class Compare extends Component {
     });
   }
   componentDidMount() {
-    const avatarId = this.props.avatarId;
-    axios.get(`/${access_token}/${avatarId}`).then(res => {
+    const selectedHero = this.props.selectedHero;
+    axios.get(`/${access_token}/${selectedHero}`).then(res => {
       this.setState({ myChar: res.data });
     });
     axios
       .get(`/${access_token}/${enemyChar}`)
       .then(res => {
         this.setState({ enemy: res.data });
-        this.setState({
-          enemyId: this.state.enemyId.splice(1, this.state.enemyId.length)
-        });
       })
       .then(console.log(this.state.enemy));
   }
