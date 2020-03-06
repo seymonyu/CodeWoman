@@ -3,8 +3,6 @@ import axios from "axios";
 import "./scss/Compare.scss";
 import DisplayResult from "./DisplayResult";
 const access_token = "2560077217542151";
-const enemyId = ["423", "119", "598", "251", "346", "222", "149", "180"];
-const enemyChar = enemyId[Math.floor(Math.random() * enemyId.length)];
 class Compare extends Component {
   constructor(props) {
     super(props);
@@ -31,11 +29,7 @@ class Compare extends Component {
         name: ""
       },
       flag: 0,
-      mount: false,
-      id_list: [589, 720, 165, 638, 309, 356, 107, 238, 643],
-
-      myAllies: [],
-      noOfAllies: 0
+      mount: false
     };
     this.result = this.result.bind(this);
     this.getIntelligence = this.getIntelligence.bind(this);
@@ -44,15 +38,13 @@ class Compare extends Component {
     this.componentDidMount = this.componentDidMount.bind(this);
     this.handlerunmount = this.handlerunmount.bind(this);
   }
-  addMyAlly() {
-    this.setState({
-      myAllies: [...this.state.myAllies, this.state.id_list[0]],
-      noOfAllies: this.state.noOfAllies + 1,
-      id_list: this.state.id_list.splice(1, this.state.id_list.length)
-    });
-  }
+
   componentDidMount() {
     const selectedHero = this.props.selectedHero;
+    const enemyChar = this.props.enemyId[
+      Math.floor(Math.random() * this.props.enemyId.length)
+    ];
+    this.props.spliceEnemyId(enemyChar);
     axios.get(`/${access_token}/${selectedHero}`).then(res => {
       this.setState({ myChar: res.data });
     });
@@ -66,9 +58,9 @@ class Compare extends Component {
 
   result(myStats, enemyStats) {
     if (myStats >= enemyStats) {
-      this.addMyAlly();
       this.setState({ flag: 1 });
       console.log("You Win");
+      this.props.addMyAlly();
     } else {
       this.setState({ flag: 2 });
       console.log("You lost");
@@ -129,6 +121,15 @@ class Compare extends Component {
           <button onClick={this.getIntelligence}>Intelligence</button>
           <button onClick={this.getStrength}>Strength</button>
           <button onClick={this.getSpeed}>Speed</button>
+        </div>
+        <button onClick={this.props.handlerCUnmount}>Close</button>
+
+        <div className="allies-list">
+          {this.props.myAlliesUrl
+            ? this.props.myAlliesUrl.map((item, index) => (
+                <img key={index} src={item} alt="my allies" />
+              ))
+            : null}
         </div>
       </div>
     );
