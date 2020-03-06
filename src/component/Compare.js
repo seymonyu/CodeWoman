@@ -137,5 +137,4 @@ class Compare extends Component {
     );
   }
 }
-
 export default Compare;
