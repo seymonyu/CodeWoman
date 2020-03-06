@@ -1,16 +1,60 @@
-.Avatars {
-  display: flex;
+.Avatars h1 {
+  color: #1c447b;
 }
+.Avatars img {
+  height: 330px;
+  border-radius: 5px;
+  border: 5px solid #816452;
+}
+
 .displayBlock {
-  display: flex;
-  flex-flow: column;
-  width: 100vw;
-  height: 100vh;
+  background-color: #ec5c56;
+
+  font-family: "Roboto";
 }
-img {
-  width: 100px;
-  height: 100px;
+li {
+  list-style-type: none;
+  font-size: 20pt;
+  color: #1c447b;
 }
-h1 {
-  font-size: 1em;
+.Avatars div {
+  display: inline-block;
+  margin: 20px;
+  margin-left: 320px;
+}
+.Buttons {
+  background-color: #ec5c56;
+  align-items: center;
+}
+.Buttons button {
+  background-color: #dddddd;
+  width: 200px;
+  margin-left: 20px;
+  height: 50px;
+  border-radius: 5px;
+  border: 5px solid #816452;
+  text-align: center;
+  color: #1c447b;
+  font-size: 20pt;
+  margin-left: 200px;
+}
+.allies-list img {
+  height: 200px;
+  padding-left: 30px;
+}
+.allies-list {
+  margin: 30px;
+}
+.displayBlock .Avatar button {
+  background-color: #dddddd;
+  width: 200px;
+  margin-left: 20px;
+  height: 50px;
+  border-radius: 5px;
+  border: 5px solid #816452;
+  text-align: center;
+  color: #1c447b;
+  font-size: 20pt;
+  margin-top: 10px;
+  margin-left: 600px;
 }

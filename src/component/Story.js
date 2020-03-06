@@ -3,7 +3,7 @@ import SelectHero from "./SelectHero";
 
 import axios from "axios";
 
-// import "./scss/evilRobot.scss";
+import "./scss/evilRobot.scss";
 import evilRobot from "./images/evilRobot.svg";
 import Game from "./Game";
 

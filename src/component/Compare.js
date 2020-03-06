@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./scss/Compare.scss";
 import DisplayResult from "./DisplayResult";
+import "./scss/Compare.scss";
 const access_token = "2560077217542151";
 class Compare extends Component {
   constructor(props) {
@@ -94,20 +94,24 @@ class Compare extends Component {
     return (
       <div className="displayBlock">
         <div className="Avatars">
-          <h1>{this.state.myChar.name} </h1>
-          <img src={this.state.myChar.image.url} alt="myChar" />
-          <ul>
-            <li> {this.state.myChar.powerstats.intelligence}</li>
-            <li> {this.state.myChar.powerstats.strength}</li>
-            <li> {this.state.myChar.powerstats.speed}</li>
-          </ul>
-          <h1>{this.state.enemy.name} </h1>
-          <img src={this.state.enemy.image.url} alt="myChar" />
-          <ul>
-            <li> {this.state.enemy.powerstats.intelligence}</li>
-            <li> {this.state.enemy.powerstats.strength}</li>
-            <li> {this.state.enemy.powerstats.speed}</li>
-          </ul>
+          <div>
+            <h1>{this.state.myChar.name} </h1>
+            <img src={this.state.myChar.image.url} alt="myChar" />
+            <ul>
+              <li> {this.state.myChar.powerstats.intelligence}</li>
+              <li> {this.state.myChar.powerstats.strength}</li>
+              <li> {this.state.myChar.powerstats.speed}</li>
+            </ul>
+          </div>
+          <div>
+            <h1>{this.state.enemy.name} </h1>
+            <img src={this.state.enemy.image.url} alt="myChar" />
+            <ul>
+              <li> {this.state.enemy.powerstats.intelligence}</li>
+              <li> {this.state.enemy.powerstats.strength}</li>
+              <li> {this.state.enemy.powerstats.speed}</li>
+            </ul>
+          </div>
         </div>
         {this.state.mount === true ? (
           <DisplayResult
@@ -124,6 +128,7 @@ class Compare extends Component {
         <button onClick={this.props.handlerCUnmount}>Close</button>
 
         <div className="allies-list">
+          <h1>Your Allies!</h1>
           {this.props.myAlliesUrl
             ? this.props.myAlliesUrl.map((item, index) => (
                 <img key={index} src={item} alt="my allies" />
