@@ -1,14 +1,21 @@
 import React, { Component } from "react";
 import SelectHero from "./SelectHero";
 import axios from "axios";
+<<<<<<< HEAD
 import "./scss/evilRobot.scss";
+=======
+
+// import "./scss/evilRobot.scss";
+>>>>>>> 420fad63e7c7fbedbbf38a138a55fd472ce33b4c
 import evilRobot from "./images/evilRobot.svg";
+import Game from "./Game";
 
 class Story extends Component {
   state = {
     id_list: [589, 720, 165, 638, 309, 356, 107, 238, 643],
     superHero: [],
     selectedHero: "",
+<<<<<<< HEAD
     ourHero: "",
 
 
@@ -16,6 +23,11 @@ class Story extends Component {
     mountHero: false,
     mountGame:false
 
+=======
+    mountHero: false,
+    mountGame: false,
+    ourHeroUrl: ""
+>>>>>>> 420fad63e7c7fbedbbf38a138a55fd472ce33b4c
   };
 
   componentDidMount=()=> {
@@ -27,7 +39,7 @@ class Story extends Component {
           this.setState({
             superHero: [...this.state.superHero, temp],
             selectedHero: temp.id,
-            ourHero: temp.image.url
+            ourHeroUrl: temp.image.url
           });
         })
         .catch(error => console.error(`something went wrong: ${error}`));
@@ -42,12 +54,14 @@ class Story extends Component {
       ),
       ourHero: chosenHero.image.url
     });
+<<<<<<< HEAD
     this.toggleMountGameMount()
   };
 
 
-toggleMountSelectHero = () => {
-    this.setState({ mountHero: !this.state.mountHero});
+
+  toggleMountSelectHero = () => {
+    this.setState({ mountHero: !this.state.mountHero });
   };
   
 toggleMountGameMount=()=>{
@@ -58,6 +72,7 @@ toggleMountGameMount=()=>{
   render() {
     return (
       <div>
+
       {this.state.mountHero ===true?
                   <SelectHero
                     superHero={this.state.superHero}
@@ -65,7 +80,7 @@ toggleMountGameMount=()=>{
                     mountGame={this.state.mountGame}
                     id_list={this.state.id_list}
                     selectedHero={this.state.selectedHero}
-                    ourHero={this.state.ourHero}
+                    ourHeroUrl={this.state.ourHeroUrl}
                     
                   />:
                
@@ -84,33 +99,34 @@ toggleMountGameMount=()=>{
                 </div>
                 <div className="typewriter-second">
                   <h1>You have no chance.</h1>
+                   </div>
+                    <div className="typewriter-third">
+                      <h1>You will never have a job in tech!</h1>
+                    </div>
+                    <div className="typewriter-fourth">
+                      <h1>Hahahahahahahahahahahahaha.</h1>
+                    </div>
+                    <div className="typewriter-fifth">
+                      <h1>What?? You wanna fight me??</h1>
+                    </div>
+                  </div>
+                  <div className="circle--wrap">
+                    <div className="blob"></div>
+                    <button
+                      type="button"
+                      className="circle--typo btn btn-link"
+                      onClick={this.toggleMountSelectHero}
+                    >
+                      Choose a heroine
+                    </button>
+                  </div>
                 </div>
-                <div className="typewriter-third">
-                  <h1>You will never have a job in tech!</h1>
-                </div>
-                <div className="typewriter-fourth">
-                  <h1>Hahahahahahahahahahahahaha.</h1>
-                </div>
-                <div className="typewriter-fifth">
-                  <h1>What?? You wanna fight me??</h1>
-                </div>
-              </div>
-              <div className="circle--wrap">
-                <div className="blob"></div>
-                <button
-                  type="button"
-                  className="circle--typo btn btn-link"
-                  onClick={this.toggleMountSelectHero}
-                >
-                  Choose a heroine
-                </button>
-                
+
               </div>
             </div>
-          </div>
-        </div>
-      </section>}
-      </div>
+          </section>
+        )}
+</div>
     );
   }
 }

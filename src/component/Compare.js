@@ -56,11 +56,9 @@ class Compare extends Component {
   result(myStats, enemyStats) {
     if (myStats >= enemyStats) {
       this.setState({ flag: 1 });
-      console.log("You Win");
       this.props.addMyAlly();
     } else {
       this.setState({ flag: 2 });
-      console.log("You lost");
     }
   }
   handlerunmount() {
@@ -87,6 +85,7 @@ class Compare extends Component {
     );
     this.setState({ mount: true });
   }
+
   render() {
     return (
       <div className="displayBlock">
@@ -119,6 +118,7 @@ class Compare extends Component {
           <button onClick={this.getSpeed}>Speed</button>
         </div>
         <button onClick={this.props.handlerCUnmount}>Close</button>
+
         <div className="allies-list">
           {this.props.myAlliesUrl
             ? this.props.myAlliesUrl.map((item, index) => (

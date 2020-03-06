@@ -8,7 +8,7 @@ function SelectHero({ superHero,mountGame,selectHeroOnClick,id_list,selectedHero
 
     return (
  <div>
- {mountGame===true?<Game id_list={id_list} selectedHero={selectedHero} ourHero={ourHero}/>:
+ {mountGame===true?<Game id_list={id_list} selectedHero={selectedHero} ourHeroUrl={ourHeroUrl}/>:
  <div>
         {superHero.map((item, index) => (
           <HeroList key={index} obj={item} onClick={selectHeroOnClick} />
@@ -18,4 +18,3 @@ function SelectHero({ superHero,mountGame,selectHeroOnClick,id_list,selectedHero
 </div>
 );}
 
-export default SelectHero;

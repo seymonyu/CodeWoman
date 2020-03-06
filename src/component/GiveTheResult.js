@@ -2,7 +2,6 @@
 import React from 'react'
 import Story from "./Story"
 
-
 function GiveTheResult({flag,handlerunmount,handlerunmountStory,handlerunmountQuestion,mount}){
       return(
            <div>
