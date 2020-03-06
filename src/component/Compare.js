@@ -27,7 +27,8 @@ class Compare extends React.Component{
               name: '',
               },
               flag:0,
-              mount:false
+              mount:1,
+             
             
       } 
         this.result = this.result.bind(this);
@@ -36,6 +37,12 @@ class Compare extends React.Component{
         this.getStrength = this.getStrength.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
         this.handlerunmount = this.handlerunmount.bind(this);
+         this.handlerunmountStory = this.handlerunmountStory.bind(this);
+        this.handlerunmountQuestion = this.handlerunmountQuestion.bind(this);
+                this.handlerunmountNewCombate = this.handlerunmountNewCombate.bind(this);
+
+
+
     };
   componentDidMount(){
      axios.get(`10217697164035503/${this.props.selectedHero}`)
@@ -66,30 +73,53 @@ class Compare extends React.Component{
   }
 } 
 
-handlerunmount(){
-    this.setState({mount:false})
-
-}
-
-
   getInteligence(){
       
 this.result(this.state.myChar.powerstats.intelligence,this.state.enemy.powerstats.intelligence )
-this.setState({mount:true})
+this.setState({mount:2})
 
 
   }
   getSpeed(){
 this.result(this.state.myChar.powerstats.speed,this.state.enemy.powerstats.intelligence)
-  this.setState({mount:true})
+  this.setState({mount:2})
 }
      getStrength(){
 this.result(this.state.myChar.powerstats.strength,this.state.enemy.powerstats.intelligence)
- this.setState({mount:true})
+ this.setState({mount:2})
+ }
+
+ //mounting functions
+ handlerunmount(){
+    this.setState({mount:2})
+
+}
+ handlerunmountStory(){
+   this.setState({mount:3})
+   
+ }
+ handlerunmountQuestion(){
+   this.setState({mount:4})
+
+ }
+  handlerunmountNewCombate(){
+   this.setState({mount:5})
+
  }
  
   render() {
+
+
     return (
+      <div>
+          {this.state.mount===2?<DisplayResult 
+          flag={this.state.flag} 
+          handlerunmount={this.handlerunmount} 
+          mount={this.state.mount} 
+          handlerunmountStory={this.handlerunmountStory} 
+           handlerunmountQuestion={this.handlerunmountQuestion}
+           />:
+
 <div className="displayBlock">
     <div className="Avatars">
 
@@ -108,13 +138,13 @@ this.result(this.state.myChar.powerstats.strength,this.state.enemy.powerstats.in
        <li> {this.state.enemy.powerstats.speed}</li>
       </ul>
     </div>
-    {this.state.mount===true?<DisplayResult flag={this.state.flag} handlerunmount={this.handlerunmount} mount={this.state.mount}/>:null}
      <div className="Buttons"> 
         <button onClick={this.getInteligence}>Intelligence</button>
         <button onClick={this.getSpeed}>Strength</button>
         <button onClick={this.getStrength}>Speed</button>
      </div>
      
+</div>}
 </div>
     );
   }

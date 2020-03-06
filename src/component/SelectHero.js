@@ -38,12 +38,14 @@ class SelectHero extends Component {
   render() {
     return (
       <div>
+      {this.state.unmount===false? <Compare selectedHero={this.state.selectedHero}/>: 
+        <div>
         {this.state.superHero.map((item, index) => (
           <HeroList key={index} obj={item} onClick={this.selectHeroOnClick} />
         ))}
        
-        
-   {this.state.unmount===false? <Compare selectedHero={this.state.selectedHero}/>: null}
+        </div>}
+   
      </div>
 
     );

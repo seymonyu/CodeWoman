@@ -1,10 +1,28 @@
-import React from "react";
+import React,{Component} from "react";
 import "./scss/start.scss";
 import Eye from "./images/Eye.svg";
+import SelectHero from "./SelectHero"
 
-const Start = () => {
+class Start extends Component {
+constructor(props){
+  super(props)
+  this.state={
+    mountHero:false
+  }
+
+this.handlermountHero = this.handlermountHero.bind(this);
+}
+
+handlermountHero(){
+  this.setState({mountHero:!this.state.mountHero})
+}
+
+render(){
   return (
+    <div>
+        {this.state.mountHero===true?<SelectHero/> : 
     <section className="start">
+
       <title>Artechmiss</title>
       <div className="start--wrap container-fluid">
         <div className="start--row row">
@@ -19,7 +37,9 @@ const Start = () => {
             <p className="start--typo">Heroine</p>
             <div className="circle--wrap">
               <div className="blob"></div>
-              <button type="button" className="circle--typo btn btn-link">
+              <button onClick={this.handlermountHero}
+                type="button"
+                 className="circle--typo btn btn-link">
                 Play the Game
               </button>
             </div>
@@ -29,8 +49,9 @@ const Start = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>}
+    </div>
+  );}
 };
 
 export default Start;

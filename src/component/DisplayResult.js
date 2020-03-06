@@ -8,7 +8,12 @@ class DisplayResult extends Component {
     return (
       <section >
            
-           <GiveTheResult flag={this.props.flag} handlerunmount={this.props.handlerunmount}/>
+           <GiveTheResult flag={this.props.flag} 
+           handlerunmount={this.props.handlerunmount} 
+           handlerunmountQuestion={this.props.handlerunmountQuestion} 
+           mount={this.props.mount}
+           handlerunmountStory={this.props.handlerunmountStory}
+         />
                 
       </section>
     );
