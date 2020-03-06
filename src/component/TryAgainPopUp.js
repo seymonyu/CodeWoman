@@ -2,7 +2,11 @@ import React from "react";
 import "./scss/winPopUp.scss";
 import tryAgain from "./images/tryAgain.svg";
 
+<<<<<<< HEAD
 const TryAgainPopUp = () => {
+=======
+const TryAgainPopUp = ({answered,handlerGameFlow,handlerQUnmount}) => {
+>>>>>>> maching_the_comp
   return (
     <body>
       <div class="pop--bg">
@@ -59,9 +63,13 @@ const TryAgainPopUp = () => {
               </div>
               <div class="circle--wrap">
                 <div class="blob"></div>
+<<<<<<< HEAD
                 <button type="button" class="circle--typo btn btn-link">
                   Next!
                 </button>
+=======
+               <button type="button" class="circle--typo btn btn-link" onClick={answered === 1?handlerGameFlow:handlerQUnmount}>Next</button>
+>>>>>>> maching_the_comp
               </div>
             </div>
           </div>

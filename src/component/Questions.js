@@ -1,25 +1,34 @@
 import React, { Component } from "react";
 import RandomQuestion from "./RandomQuestion";
-import Result from "./Result";
-
+import TryAgainPopUp from "./TryAgainPopUp";
+import WinPopUp from "./WinPopUp";
 class Questions extends Component {
   render() {
     return (
       <div className="Questions">
         <h1>hello</h1>
-
         <RandomQuestion
           question={this.props.question}
           handleYes={this.props.handleYes}
           handleNo={this.props.handleNo}
         />
-
         <div>
-          {this.props.answered === 1 || this.props.answered === 2 ? (
-            <Result result={this.props.answered} />
+          {this.props.answered === 1 ? (
+            <WinPopUp
+              answered={this.props.answered}
+              handlerGameFlow={this.props.handlerGameFlow}
+              handlerQUnmount={this.props.handlerQUnmount}
+            />
+          ) : null}
+
+          {this.props.answered === 2 ? (
+            <TryAgainPopUp
+              answered={this.props.answered}
+              handlerGameFlow={this.props.handlerGameFlow}
+              handlerQUnmount={this.props.handlerQUnmount}
+            />
           ) : null}
         </div>
-        <button onClick={this.props.handlerQUnmount}>close</button>
         <div>
           {this.props.myAlliesUrl
             ? this.props.myAlliesUrl.map((item, index) => (
@@ -31,5 +40,4 @@ class Questions extends Component {
     );
   }
 }
-
 export default Questions;

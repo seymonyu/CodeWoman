@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+<<<<<<< HEAD
 import SelectHero from "./SelectHero";
 import axios from "axios";
 <<<<<<< HEAD
@@ -9,6 +10,12 @@ import "./scss/evilRobot.scss";
 >>>>>>> 420fad63e7c7fbedbbf38a138a55fd472ce33b4c
 import evilRobot from "./images/evilRobot.svg";
 import Game from "./Game";
+=======
+import axios from "axios";
+import "./scss/evilRobot.scss";
+import SelectHero from "./SelectHero"
+import evilRobot from "./images/evilRobot.svg"
+>>>>>>> maching_the_comp
 
 class Story extends Component {
   state = {
@@ -27,7 +34,11 @@ class Story extends Component {
     mountHero: false,
     mountGame: false,
     ourHeroUrl: ""
+<<<<<<< HEAD
 >>>>>>> 420fad63e7c7fbedbbf38a138a55fd472ce33b4c
+=======
+
+>>>>>>> maching_the_comp
   };
 
   componentDidMount=()=> {
@@ -55,6 +66,10 @@ class Story extends Component {
       ourHero: chosenHero.image.url
     });
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> maching_the_comp
     this.toggleMountGameMount()
   };
 
@@ -124,11 +139,18 @@ toggleMountGameMount=()=>{
 
               </div>
             </div>
+<<<<<<< HEAD
           </section>
         )}
 </div>
     );
   }
 }
+=======
+          </section> }
+</div>
+  
+  )}}
+>>>>>>> maching_the_comp
 export default Story;
 
