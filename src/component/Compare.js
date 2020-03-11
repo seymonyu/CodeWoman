@@ -105,13 +105,13 @@ class Compare extends Component {
             <li> {this.state.enemy.powerstats.speed}</li>
           </ul>
         </div>
-        {this.state.mount === true ? (
+        {/* {this.state.mount === true ? (
           <DisplayResult
             flag={this.state.flag}
             handlerunmount={this.handlerunmount}
             mount={this.state.mount}
           />
-        ) : null}
+        ) : null} */}
         <div className="Buttons">
           <button onClick={this.getIntelligence}>Intelligence</button>
           <button onClick={this.getStrength}>Strength</button>

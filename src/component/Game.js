@@ -8,13 +8,13 @@ import "./Game.css";
 const questionsList = [
   {
     Q:
-      "Is it true that in the past 50 years, 85 states have had no female head of state.",
+      "Is it true that in the past 50 years, 85 states in the United States have had no female head of state.",
     A: true
   },
 
   {
     Q:
-      "Is it true that in the past 50 years, 45 states have had no female head of state.",
+      "Is it true that in the past 50 years, 45 states in the United States have had no female head of state.",
     A: false
   },
 
@@ -99,9 +99,13 @@ class Game extends Component {
     answered: 0, // 0 - unanswered, 1 - correct, 2 - incorrect
     myAllies: [],
     myAlliesUrl: [],
-    forward_flag: 0,
+
     enemyId: [423, 119, 598, 251, 346, 222, 149, 180],
-    myAlliesdata: []
+    myAlliesdata: [],
+    questionsMount: false,
+    compareMount: false,
+    counter: 1,
+    end: false
   };
   componentDidMount() {
     this.setState({
@@ -110,21 +114,27 @@ class Game extends Component {
     });
   }
 
-  handlerGameFlow = () => {
-    this.setState({ forward_flag: this.state.forward_flag + 1 });
-  };
-
   spliceEnemyId = enemyChar => {
     this.setState({
       enemyId: this.state.enemyId.filter(item => item !== parseInt(enemyChar))
     });
   };
 
-  toggleQuestionsMount = () => {
-    this.setState({
-      questionsMount: !this.state.questionsMount,
-      answered: 0
-    });
+  togglescreenMount = () => {
+    if (this.state.counter === 4) {
+      this.setState({
+        questionsMount: false,
+        compareMount: false,
+        end: true
+      });
+    } else {
+      this.setState({
+        questionsMount: !this.state.questionsMount,
+        compareMount: !this.state.compareMount,
+        answered: 0,
+        counter: this.state.counter + 1
+      });
+    }
   };
   spliceEnemyId = enemyChar => {
     this.setState({
@@ -152,6 +162,11 @@ class Game extends Component {
       })
       .catch(error => console.error(`something went wrong: ${error}`));
   };
+  handleStartGame = () => {
+    this.setState({
+      questionsMount: true
+    });
+  };
 
   handleYes = question => {
     if (question.A) {
@@ -169,43 +184,45 @@ class Game extends Component {
     } else {
       this.setState({ answered: 2 });
     }
-    console.log(this.state.answered);
   };
 
   render() {
     return (
-      <div>
-        {this.state.forward_flag === 0 ||
-        this.state.forward_flag === 2 ||
-        this.state.forward_flag === 4 ||
-        this.state.forward_flag === 6 ||
-        this.state.forward_flag === 8 ? (
-          <GameStory
-            forward_flag={this.state.forward_flag}
+      <div className="game_container">
+        {!this.state.questionsMount &&
+        !this.state.compareMount &&
+        !this.state.end ? (
+          <div>
+            {" "}
+            <p>You have chosen</p>
+            <img src={this.props.ourHeroUrl} alt="super hero" />
+            <p>Let's begin the game</p>
+            <button
+              onClick={this.handleStartGame}
+              className="question--btn btn btn-link"
+            >
+              Start the game
+            </button>
+          </div>
+        ) : null}
+
+        {this.state.questionsMount ? (
+          <Questions
+            question={getQuestion(questionsList)}
+            handleYes={this.handleYes}
+            handleNo={this.handleNo}
+            answered={this.state.answered}
+            handlerQUnmount={this.togglescreenMount}
+            addMyAlly={this.addMyAlly}
+            myAlliesUrl={this.state.myAlliesUrl}
+            myAlliesdata={this.state.myAlliesdata}
             ourHeroUrl={this.props.ourHeroUrl}
-            handlerGameFlow={this.handlerGameFlow}
           />
         ) : null}
-
-        {this.state.forward_flag === 1 ? (
-          <Questions
-            question={getQuestion(questionsList)}
-            handleYes={this.handleYes}
-            handleNo={this.handleNo}
-            answered={this.state.answered}
-            handlerQUnmount={this.toggleQuestionsMount}
-            handlerGameFlow={this.handlerGameFlow}
-            addMyAlly={this.addMyAlly}
-            myAlliesUrl={this.state.myAlliesUrl}
-            myAlliesdata={this.state.myAlliesdata}
-          />
-        ) : null}
-
-        {this.state.forward_flag === 3 ? (
+        {this.state.compareMount ? (
           <Compare
             selectedHero={this.props.selectedHero}
-            handlerGameFlow={this.handlerGameFlow}
-            handlerCUnmount={this.toggleCompareMount}
+            handlerCUnmount={this.togglescreenMount}
             spliceEnemyId={this.spliceEnemyId}
             enemyId={this.state.enemyId}
             addMyAlly={this.addMyAlly}
@@ -213,57 +230,7 @@ class Game extends Component {
             myAlliesdata={this.state.myAlliesdata}
           />
         ) : null}
-
-        {this.state.forward_flag === 5 ? (
-          <Questions
-            question={getQuestion(questionsList)}
-            handleYes={this.handleYes}
-            handleNo={this.handleNo}
-            answered={this.state.answered}
-            handlerQUnmount={this.toggleQuestionsMount}
-            handlerGameFlow={this.handlerGameFlow}
-            addMyAlly={this.addMyAlly}
-            myAlliesUrl={this.state.myAlliesUrl}
-            myAlliesdata={this.state.myAlliesdata}
-          />
-        ) : null}
-        {this.state.forward_flag === 6 ? (
-          <Compare
-            selectedHero={this.props.selectedHero}
-            handlerGameFlow={this.handlerGameFlow}
-            handlerCUnmount={this.toggleCompareMount}
-            spliceEnemyId={this.spliceEnemyId}
-            enemyId={this.state.enemyId}
-            addMyAlly={this.addMyAlly}
-            myAlliesUrl={this.state.myAlliesUrl}
-            myAlliesdata={this.state.myAlliesdata}
-          />
-        ) : null}
-        {this.state.forward_flag === 8 ? (
-          <Questions
-            question={getQuestion(questionsList)}
-            handleYes={this.handleYes}
-            handleNo={this.handleNo}
-            answered={this.state.answered}
-            handlerQUnmount={this.toggleQuestionsMount}
-            handlerGameFlow={this.handlerGameFlow}
-            addMyAlly={this.addMyAlly}
-            myAlliesUrl={this.state.myAlliesUrl}
-            myAlliesdata={this.state.myAlliesdata}
-          />
-        ) : null}
-        {this.state.forward_flag === 10 ? (
-          <Compare
-            selectedHero={this.props.selectedHero}
-            handlerGameFlow={this.handlerGameFlow}
-            handlerCUnmount={this.toggleCompareMount}
-            spliceEnemyId={this.spliceEnemyId}
-            enemyId={this.state.enemyId}
-            addMyAlly={this.addMyAlly}
-            myAlliesUrl={this.state.myAlliesUrl}
-            myAlliesdata={this.state.myAlliesdata}
-          />
-        ) : null}
+        {this.state.end ? <p>The End</p> : null}
       </div>
     );
   }

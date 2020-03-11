@@ -43,7 +43,7 @@ class Story extends Component {
       id_list: this.state.id_list.filter(
         item => item !== parseInt(chosenHero.id)
       ),
-      ourHero: chosenHero.image.url
+      ourHeroUrl: chosenHero.image.url
     });
     this.toggleMountGameMount();
   };
@@ -98,8 +98,8 @@ class Story extends Component {
                     <div className="blob"></div>
                     <button
                       type="button"
-                      className="circle--typo btn btn-link"
                       onClick={this.toggleMountSelectHero}
+                      className="circle--typo btn btn-link"
                     >
                       Choose a heroine
                     </button>
