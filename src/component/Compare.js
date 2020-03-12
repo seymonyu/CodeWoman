@@ -5,40 +5,32 @@ import winPopUp from "./images/winPopUp.svg";
 
 const access_token = "2560077217542151";
 class Compare extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      myChar: {
-        powerstats: {
-          inteligence: " ",
-          strength: "",
-          speed: ""
-        },
-        image: {
-          url: ""
-        },
-        name: ""
+  state = {
+    myChar: {
+      powerstats: {
+        inteligence: " ",
+        strength: "",
+        speed: ""
       },
-      enemy: {
-        powerstats: {
-          inteligence: "",
-          strength: "",
-          speed: ""
-        },
-        image: { url: "" },
-        name: ""
+      image: {
+        url: ""
       },
-      flag: 0,
-      mount: false
-    };
-    this.result = this.result.bind(this);
-    this.getIntelligence = this.getIntelligence.bind(this);
-    this.getSpeed = this.getSpeed.bind(this);
-    this.getStrength = this.getStrength.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
-    this.handlerunmount = this.handlerunmount.bind(this);
-  }
-  componentDidMount() {
+      name: ""
+    },
+    enemy: {
+      powerstats: {
+        inteligence: "",
+        strength: "",
+        speed: ""
+      },
+      image: { url: "" },
+      name: ""
+    },
+    flag: 0,
+    mount: false
+  };
+
+  componentDidMount = () => {
     const selectedHero = this.props.selectedHero;
     const enemyChar = this.props.enemyId[
       Math.floor(Math.random() * this.props.enemyId.length)
@@ -53,7 +45,7 @@ class Compare extends Component {
         this.setState({ enemy: res.data });
       })
       .then(console.log(this.state.enemy));
-  }
+  };
   result(myStats, enemyStats) {
     if (myStats >= enemyStats) {
       this.setState({ flag: 1 });
@@ -63,30 +55,30 @@ class Compare extends Component {
     }
   }
 
-  handlerunmount() {
+  handlerunmount = () => {
     this.setState({ mount: false });
-  }
-  getIntelligence() {
+  };
+  getIntelligence = () => {
     this.result(
       this.state.myChar.powerstats.intelligence,
       this.state.enemy.powerstats.intelligence
     );
     this.setState({ mount: true });
-  }
-  getStrength() {
+  };
+  getStrength = () => {
     this.result(
       this.state.myChar.powerstats.strength,
       this.state.enemy.powerstats.strength
     );
     this.setState({ mount: true });
-  }
-  getSpeed() {
+  };
+  getSpeed = () => {
     this.result(
       this.state.myChar.powerstats.speed,
       this.state.enemy.powerstats.speed
     );
     this.setState({ mount: true });
-  }
+  };
 
   render() {
     return (

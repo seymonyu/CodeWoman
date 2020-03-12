@@ -5,13 +5,14 @@ import SelectHero from "./SelectHero";
 import evilRobot from "./images/evilRobot.svg";
 class Story extends Component {
   state = {
-    id_list: [589, 720, 165, 638, 309, 356, 107, 238, 643],
+    id_list: [589, 720, 165, 638, 309, 356, 107, 238],
     superHero: [],
     selectedHero: "",
     mountHero: false,
     mountGame: false,
     ourHeroUrl: "",
-    id_male: ""
+    id_male: "",
+    mountChoseMale:false
   };
   componentDidMount = () => {
     this.state.id_list.map(element => {
@@ -29,11 +30,8 @@ class Story extends Component {
     });
     return axios
       .get(`http://superheroapi.com/api.php/10158157868173814/498`)
-      .then(response => {
-        let temp = response.data;
-        this.setState({
-          id_male: temp.image.url
-        });
+      .then(response =>{
+        this.setState({id_male: response.data.image.url});
       })
       .catch(error => console.error(`something went wrong: ${error}`));
   };
@@ -54,6 +52,9 @@ class Story extends Component {
   toggleMountGameMount = () => {
     this.setState({ mountGame: !this.state.mountGame });
   };
+  toggleMountChoseMale = () => {
+    this.setState({ mountChoseMale: !this.state.mountChoseMale });
+  };
   render() {
     return (
       <div>
@@ -66,6 +67,8 @@ class Story extends Component {
             selectedHero={this.state.selectedHero}
             ourHeroUrl={this.state.ourHeroUrl}
             maleUrl={this.state.id_male}
+            toggleMountChoseMale={this.toggleMountChoseMale}
+            mountChoseMale={this.state.mountChoseMale}
           />
         ) : (
           <section className="robot">
