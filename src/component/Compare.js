@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./scss/Compare.scss";
-import DisplayResult from "./DisplayResult";
 import winPopUp from "./images/winPopUp.svg";
 
 const access_token = "2560077217542151";
@@ -64,8 +63,6 @@ class Compare extends Component {
     }
   }
 
-
-
   handlerunmount() {
     this.setState({ mount: false });
   }
@@ -94,52 +91,86 @@ class Compare extends Component {
   render() {
     return (
       <div className="displayBlock">
-        {this.state.flag===1||this.state.flag===2?
-        this.state.flag === 1 ? (
+        {this.state.flag === 1 || this.state.flag === 2 ? (
+          this.state.flag === 1 ? (
             <div class="pop--bg">
-            <img class="pop--win" src={winPopUp} alt="Winning" />
-            <p class="pop-text">You collected more allies!</p>
-            <button onClick={this.props.handlerCUnmount}>Next challenge</button>
-          </div>
+              <img class="pop--win" src={winPopUp} alt="Winning" />
+              <p class="pop-text">You collected more allies!</p>
+              <button
+                className="button-win-lose"
+                onClick={this.props.handlerCUnmount}
+              >
+                Next challenge
+              </button>
+            </div>
+          ) : (
+            <div>
+              <p>You lost</p>
+              <button
+                className="button-win-lose"
+                onClick={this.props.handlerCUnmount}
+              >
+                Next challenge
+              </button>
+            </div>
+          )
         ) : (
-          <div><p>You lost</p>
-          <button onClick={this.props.handlerCUnmount}>Next challenge</button>
-          </div>):
           <div>
-        <div className="Avatars">
-          <h1>{this.state.myChar.name} </h1>
-          <img src={this.state.myChar.image.url} alt="myChar" />
-          <ul>
-            <li> {this.state.myChar.powerstats.intelligence}</li>
-            <li> {this.state.myChar.powerstats.strength}</li>
-            <li> {this.state.myChar.powerstats.speed}</li>
-          </ul>
-          <h1>{this.state.enemy.name} </h1>
-          <img src={this.state.enemy.image.url} alt="myChar" />
-          <ul>
-            <li> {this.state.enemy.powerstats.intelligence}</li>
-            <li> {this.state.enemy.powerstats.strength}</li>
-            <li> {this.state.enemy.powerstats.speed}</li>
-          </ul>
-        </div>
-       
-        <div className="Buttons">
-          <button onClick={this.getIntelligence}>Intelligence</button>
-          <button onClick={this.getStrength}>Strength</button>
-          <button onClick={this.getSpeed}>Speed</button>
-        </div>
-        </div>}
-        
+            <div className="Avatars">
+              <div className="Avatar-me">
+                <h1 className="Avatar-name">{this.state.myChar.name} </h1>
+                <img
+                  className="avatar-img"
+                  src={this.state.myChar.image.url}
+                  alt="myChar"
+                />
+                <ul className="powerstats">
+                  <li> Int: {this.state.myChar.powerstats.intelligence}</li>
+                  <li> Str: {this.state.myChar.powerstats.strength}</li>
+                  <li> Sp: {this.state.myChar.powerstats.speed}</li>
+                </ul>
+              </div>
+              <div className="Avatar-enemy">
+                <h1 className="Avatar-name">{this.state.enemy.name} </h1>
+                <img
+                  className="avatar-img"
+                  src={this.state.enemy.image.url}
+                  alt="myChar"
+                />
+                <ul className="powerstats">
+                  <li> Int: {this.state.enemy.powerstats.intelligence}</li>
+                  <li> Str: {this.state.enemy.powerstats.strength}</li>
+                  <li> Sp: {this.state.enemy.powerstats.speed}</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="Buttons">
+              <button
+                className="button-win-lose"
+                onClick={this.getIntelligence}
+              >
+                Intelligence
+              </button>
+              <button className="button-win-lose" onClick={this.getStrength}>
+                Strength
+              </button>
+              <button className="button-win-lose" onClick={this.getSpeed}>
+                Speed
+              </button>
+            </div>
+          </div>
+        )}
+
         <div className="allies-list">
           {this.props.myAlliesUrl
             ? this.props.myAlliesUrl.map((item, index) => (
-              <div>
-                <img key={index} src={item} alt="my allies" />
+                <div>
+                  <img key={index} src={item} alt="my allies" />
                 </div>
               ))
             : null}
         </div>
-      
       </div>
     );
   }
