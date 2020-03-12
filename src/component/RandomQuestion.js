@@ -63,7 +63,7 @@ const RandomQuestion = ({
               </button>
               <button
                 type="button"
-                className="uestion--btn btn btn-link"
+                className="question--btn btn btn-link"
                 onClick={selectedNo}
               >
                 No
@@ -100,7 +100,7 @@ const RandomQuestion = ({
                 </div>
               </div>
               <div className="circle--wrap">
-                <div className="blob"></div>
+                <div className=""></div>
                 <button
                   type="button"
                   className="circle--typo btn btn-link"

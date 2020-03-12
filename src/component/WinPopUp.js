@@ -59,7 +59,7 @@ const WinPopUp = ({ answered, handlerGameFlow, handlerQUnmount }) => {
                 </div>
               </div>
               <div class="circle--wrap">
-                <div class="blob"></div>
+                <div class=""></div>
                 <button
                   type="button"
                   class="circle--typo btn btn-link"

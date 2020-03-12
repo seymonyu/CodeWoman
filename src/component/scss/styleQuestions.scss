@@ -42,22 +42,28 @@ $border-thin: 1px;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: 40vh;
 }
 @media screen and (max-width: 992px) {
   .question--col_left {
-    flex-direction: column;
-    width: 100%;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: 40vh;
   }
 }
 .question--col_right {
   background-color: $grey;
-  width: 50%;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 @media screen and (max-width: 992px) {
   .question--col_right {
-    flex-direction: column;
-    width: 100%;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: 100% !important;
   }
 }
 .container-fluid,
@@ -69,11 +75,6 @@ $border-thin: 1px;
   padding-right: 0px;
 }
 .question--title h1 {
-  color: $red;
-  font-size: 5rem;
-  padding-top: 100px;
-  padding-bottom: 5%;
-  line-height: 5.2rem;
 }
 .question--title_p {
   color: $red;
@@ -83,10 +84,6 @@ $border-thin: 1px;
 }
 @media screen and (max-width: 992px) {
   .question--title h1 {
-    font-size: 24px;
-    color: $red;
-    padding-top: 20px;
-    padding-bottom: 5%;
   }
 }
 .question--typo {
@@ -216,207 +213,12 @@ $border-thin: 1px;
   box-sizing: border-box;
   overflow: hidden;
 }
-/* Typewriter */
-/* DEMO-SPECIFIC STYLES */
-.typewriter-first h1 {
-  font-size: 1.3rem;
-  color: $red;
-  font-family: monospace;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid $red; /* The typwriter cursor */
-  white-space: wrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: 0.15em; /* Adjust as needed */
-  animation: typing 3.5s steps(30, end), blink-caret 0.5s step-end infinite;
+
+.question--btn {
+  width: 100px;
+  margin-right: 3%;
 }
-@media screen and (max-width: 400px) {
-  .typewriter-first h1 {
-    font-size: 0.8rem;
-  }
-}
-/* The typing effect */
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: $red;
-  }
-}
-.typewriter-second h1 {
-  font-size: 1.3rem;
-  color: $brown;
-  font-family: monospace;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid $red; /* The typwriter cursor */
-  white-space: wrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: 0.15em; /* Adjust as needed */
-  animation: typing-second 3.5s steps(30, end),
-    blink-caret 0.5s step-end infinite;
-  padding-top: 3%;
-  animation-delay: 2s;
-  animation-fill-mode: forwards;
-}
-@media screen and (max-width: 400px) {
-  .typewriter-second h1 {
-    font-size: 0.8rem;
-  }
-}
-/* The typing effect */
-@keyframes typing-second {
-  from {
-    width: 0;
-    color: $red;
-  }
-  to {
-    width: 100%;
-    color: $red;
-  }
-}
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: $red;
-  }
-}
-.typewriter-third h1 {
-  font-size: 1.3rem;
-  color: $brown;
-  font-family: monospace;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid $red; /* The typwriter cursor */
-  white-space: wrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: 0.15em; /* Adjust as needed */
-  animation: typing-second 3.5s steps(30, end),
-    blink-caret 0.5s step-end infinite;
-  padding-top: 3%;
-  animation-delay: 4s;
-  animation-fill-mode: forwards;
-}
-@media screen and (max-width: 400px) {
-  .typewriter-third h1 {
-    font-size: 0.8rem;
-  }
-}
-/* The typing effect */
-@keyframes typing-second {
-  from {
-    width: 0;
-    color: $red;
-  }
-  to {
-    width: 100%;
-    color: $red;
-  }
-}
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: $red;
-  }
-}
-.typewriter-fourth h1 {
-  font-size: 1.3rem;
-  color: $brown;
-  font-family: monospace;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid $red; /* The typwriter cursor */
-  white-space: wrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: 0.15em; /* Adjust as needed */
-  animation: typing-second 3.5s steps(30, end),
-    blink-caret 0.5s step-end infinite;
-  padding-top: 3%;
-  animation-delay: 6s;
-  animation-fill-mode: forwards;
-}
-@media screen and (max-width: 400px) {
-  .typewriter-fourth h1 {
-    font-size: 0.8rem;
-  }
-}
-/* The typing effect */
-@keyframes typing-second {
-  from {
-    width: 0;
-    color: $red;
-  }
-  to {
-    width: 100%;
-    color: $red;
-  }
-}
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: $red;
-  }
-}
-.typewriter-fifth h1 {
-  font-size: 1.3rem;
-  color: $brown;
-  font-family: monospace;
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid $red; /* The typwriter cursor */
-  white-space: wrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: 0.15em; /* Adjust as needed */
-  animation: typing-second 3.5s steps(30, end),
-    blink-caret 0.5s step-end infinite;
-  padding-top: 3%;
-  animation-delay: 8s;
-  animation-fill-mode: forwards;
-}
-@media screen and (max-width: 400px) {
-  .typewriter-fifth h1 {
-    font-size: 0.8rem;
-  }
-}
-/* The typing effect */
-@keyframes typing-second {
-  from {
-    width: 0;
-    color: $red;
-  }
-  to {
-    width: 100%;
-    color: $red;
-  }
-}
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: $red;
-  }
-}
+
 /* Bubble */
 .speech-bubble {
   margin-top: 5%;

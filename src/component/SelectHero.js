@@ -32,19 +32,21 @@ function SelectHero({
                 </div>
               </div>
               <div className="question--col_right col">
-                <div className="question--title">
-                  <h1>Choose your Heroine!</h1>
-                </div>
-                <div className="allies-all row">
-                  <div className="allies--wrapper col-3">
-                    {superHero.map((item, index) => (
-                      <HeroList
-                        key={index}
-                        obj={item}
-                        onClick={selectHeroOnClick}
-                      />
-                    ))}
-                    {/* <img className="male_pic" src={maleUrl} alt="male" /> */}
+                <div className="question--col_frame">
+                  <div className="question--title">
+                    <h1>Choose your Heroine!</h1>
+                  </div>
+                  <div className="allies-all row">
+                    <div className="allies--wrapper col-3">
+                      {superHero.map((item, index) => (
+                        <HeroList
+                          key={index}
+                          obj={item}
+                          onClick={selectHeroOnClick}
+                        />
+                      ))}
+                      {/* <img className="male_pic" src={maleUrl} alt="male" /> */}
+                    </div>
                   </div>
                 </div>
               </div>

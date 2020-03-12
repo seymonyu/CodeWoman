@@ -30,8 +30,8 @@ const EvilRobot = () => {
                 <h1>What?? You wanna fight me??</h1>
               </div>
             </div>
-            <div className="circle--wrap">
-              <div className="blob"></div>
+            <div className="">
+              <div className=""></div>
               <button type="button" className="circle--typo btn btn-link">
                 Choose a heroine
               </button>

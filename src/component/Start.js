@@ -32,7 +32,7 @@ class Start extends Component {
                   <p className="start--typo">Super</p>
                   <p className="start--typo">Heroine</p>
                   <div className="circle--wrap">
-                    <div className="blob"></div>
+                    <div className=""></div>
                     <button
                       type="button"
                       onClick={this.toggleStoryMount}
@@ -92,7 +92,7 @@ export default Start;
 //                   <p className="start--typo">Super</p>
 //                   <p className="start--typo">Heroine</p>
 //                   <div className="circle--wrap">
-//                     <div className="blob"></div>
+//                     <div className=""></div>
 //                     <button
 //                       onClick={this.toggleStoryMount}
 //                       type="button"

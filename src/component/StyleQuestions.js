@@ -50,7 +50,7 @@ const StyleQuestions = () => {
               </div>
             </div>
             <div className="circle--wrap">
-              <div className="blob"></div>
+              <div className=""></div>
               <button type="button" className="circle--typo btn btn-link">
                 Next!
               </button>
