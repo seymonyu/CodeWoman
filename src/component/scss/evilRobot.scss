@@ -24,13 +24,14 @@ $border-thin: 1px;
 }
 .robot--wrap {
   height: 100vh;
-  background-color: $red;
+  background-color: $grey;
 }
 .robot--row {
   width: 100%;
   height: 100%;
   margin-right: 0px;
   margin-left: 0px;
+  flex-direction: column;
 }
 @media screen and (max-width: 992px) {
   .robot--row {
@@ -43,6 +44,7 @@ $border-thin: 1px;
   justify-content: center;
   align-items: center;
   width: 50%;
+  flex-direction: column;
 }
 @media screen and (max-width: 992px) {
   .robot--col_left {
@@ -53,6 +55,7 @@ $border-thin: 1px;
 .robot--col_right {
   background-color: $grey;
   width: 50%;
+  flex-direction: column;
 }
 @media screen and (max-width: 992px) {
   .robot--col_right {
@@ -433,8 +436,30 @@ $border-thin: 1px;
   }
 }
 
-//winPop up re-sizing
+@media screen and (max-width: 400px) {
+  .robot--eye {
+    width: 40vw !important;
+  }
+}
 
-.pop--win {
-  width: 30%;
+.speech-bubble {
+  background-color: $grey !important;
+}
+
+.robot--wrapper {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 200px !important;
+  height: 200px !important;
+  border-radius: 50%;
+  padding: 10%;
+  border: solid $border-thick $grey !important;
+  margin: 5%;
+}
+
+@media screen and (max-width: 400px) {
+  .typewriter-first .typewriter-second .typewriter-third .typewriter-fourth {
+    font-size: 1.3rem !important;
+  }
 }

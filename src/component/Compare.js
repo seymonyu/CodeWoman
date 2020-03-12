@@ -113,14 +113,22 @@ class Compare extends Component {
           <div>
             <div className="Avatars">
               <h1>{this.state.myChar.name} </h1>
-              <img src={this.state.myChar.image.url} alt="myChar" />
+              <img
+                className="img_comp"
+                src={this.state.myChar.image.url}
+                alt="myChar"
+              />
               <ul>
                 <li> {this.state.myChar.powerstats.intelligence}</li>
                 <li> {this.state.myChar.powerstats.strength}</li>
                 <li> {this.state.myChar.powerstats.speed}</li>
               </ul>
               <h1>{this.state.enemy.name} </h1>
-              <img src={this.state.enemy.image.url} alt="myChar" />
+              <img
+                className="img_comp"
+                src={this.state.enemy.image.url}
+                alt="myChar"
+              />
               <ul>
                 <li> {this.state.enemy.powerstats.intelligence}</li>
                 <li> {this.state.enemy.powerstats.strength}</li>
@@ -133,18 +141,23 @@ class Compare extends Component {
               <button onClick={this.getStrength}>Strength</button>
               <button onClick={this.getSpeed}>Speed</button>
             </div>
+
+            <div className="allies-list">
+              {this.props.myAlliesUrl
+                ? this.props.myAlliesUrl.map((item, index) => (
+                    <div>
+                      <img
+                        className="chosen_img"
+                        key={index}
+                        src={item}
+                        alt="my allies"
+                      />
+                    </div>
+                  ))
+                : null}
+            </div>
           </div>
         )}
-
-        <div className="allies-list">
-          {this.props.myAlliesUrl
-            ? this.props.myAlliesUrl.map((item, index) => (
-                <div>
-                  <img key={index} src={item} alt="my allies" />
-                </div>
-              ))
-            : null}
-        </div>
       </div>
     );
   }
