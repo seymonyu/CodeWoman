@@ -95,7 +95,7 @@ class Story extends Component {
                     </div>
                   </div>
                   <div className="circle--wrap">
-                    <div className="blob"></div>
+                    <div className=""></div>
                     <button
                       type="button"
                       onClick={this.toggleMountSelectHero}

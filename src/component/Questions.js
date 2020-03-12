@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import RandomQuestion from "./RandomQuestion";
 import winPopUp from "./images/winPopUp.svg";
+import tryAgain from "./images/tryAgain.svg";
 
 class Questions extends Component {
   render() {
@@ -22,12 +23,24 @@ class Questions extends Component {
           <div class="pop--bg">
             <img class="pop--win" src={winPopUp} alt="Winning" />
             <p class="pop-text">You collected more allies!</p>
-            <button onClick={this.props.handlerQUnmount}>Next challenge</button>
+            <button
+              className="circle--typo btn btn-link"
+              onClick={this.props.handlerQUnmount}
+            >
+              Next challenge
+            </button>
           </div>
         ) : (
           <div>
-            <p>incorrect</p>
-            <button onClick={this.props.handlerQUnmount}>Next challenge</button>
+            <div class="pop--bg">
+              <img class="pop--win" src={tryAgain} alt="tryAgain" />
+            </div>
+            <button
+              className="circle--typo btn btn-link"
+              onClick={this.props.handlerQUnmount}
+            >
+              Next challenge
+            </button>
           </div>
         )}
       </div>

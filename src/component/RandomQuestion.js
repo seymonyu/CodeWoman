@@ -99,16 +99,16 @@ const RandomQuestion = ({
                     : null}
                 </div>
               </div>
-              <div className="circle--wrap">
-                <div className="blob"></div>
-               {/*  <button
+              {/* <div className="circle--wrap"> */}
+              {/* <div className="blob"></div> */}
+              {/*  <button
                   type="button"
                   className="circle--typo btn btn-link"
                   onClick={handleUnmount}
                 >
                   Next!
                 </button> */}
-              </div>
+              {/* </div> */}
             </div>
           </div>
         </div>

@@ -1,4 +1,6 @@
 import React from "react";
+import "./scss/SelectHero.scss";
+import "./SelectHero.css";
 
 const HeroList = ({ onClick, obj }) => {
   const SelectedOb = () => {
@@ -6,18 +8,16 @@ const HeroList = ({ onClick, obj }) => {
   };
 
   return (
-    <section className="container_avatar">
-      <ul>
-        <li>
-          <img
-            src={obj.image.url}
-            onClick={SelectedOb}
-            alt="avatar"
-            className="imgItem"
-          />
-        </li>
-      </ul>
-    </section>
+    <div className="allies-all container">
+      <div className="allies--wrapper row">
+        <img
+          src={obj.image.url}
+          onClick={SelectedOb}
+          alt="avatar"
+          className="question--allies col-md-3"
+        />
+      </div>
+    </div>
   );
 };
 

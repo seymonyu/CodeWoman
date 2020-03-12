@@ -5,6 +5,7 @@ import axios from "axios";
 // import GameStory from "./GameStory";
 import "./Game.css";
 import End from "./End";
+import "./scss/Game.scss";
 
 const questionsList = [
   {
@@ -195,9 +196,19 @@ class Game extends Component {
         !this.state.end ? (
           <div>
             {" "}
-            <p>You have chosen</p>
-            <img src={this.props.ourHeroUrl} alt="super hero" />
-            <p>Let's begin the game</p>
+            <div className="choosen_p_img_container">
+              <div className="choosen_p_wrap">
+                <p className="choosen_p">You have chosen</p>
+              </div>
+              <div className="choosen_img_wrap">
+                <img
+                  className="choosen_img"
+                  src={this.props.ourHeroUrl}
+                  alt="super hero"
+                />
+              </div>
+            </div>
+            <p className="choosen_begin">Let's begin the game</p>
             <button
               onClick={this.handleStartGame}
               className="question--btn btn btn-link"
