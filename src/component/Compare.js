@@ -1,40 +1,37 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./scss/Compare.scss";
-<<<<<<< HEAD
-import DisplayResult from "./DisplayResult";
-=======
->>>>>>> 151d2622639cf1ff3b64995855075aee49f6c0b7
 import winPopUp from "./images/winPopUp.svg";
+import tryAgain from "./images/tryAgain.svg";
 
 const access_token = "2560077217542151";
 class Compare extends Component {
- state = {
-      myChar: {
-        powerstats: {
-          inteligence: " ",
-          strength: "",
-          speed: ""
-        },
-        image: {
-          url: ""
-        },
-        name: ""
+  state = {
+    myChar: {
+      powerstats: {
+        inteligence: " ",
+        strength: "",
+        speed: ""
       },
-      enemy: {
-        powerstats: {
-          inteligence: "",
-          strength: "",
-          speed: ""
-        },
-        image: { url: "" },
-        name: ""
+      image: {
+        url: ""
       },
-      flag: 0,
-      mount: false
-    };
-  
-  componentDidMount =()=> {
+      name: ""
+    },
+    enemy: {
+      powerstats: {
+        inteligence: "",
+        strength: "",
+        speed: ""
+      },
+      image: { url: "" },
+      name: ""
+    },
+    flag: 0,
+    mount: false
+  };
+
+  componentDidMount = () => {
     const selectedHero = this.props.selectedHero;
     const enemyChar = this.props.enemyId[
       Math.floor(Math.random() * this.props.enemyId.length)
@@ -49,7 +46,7 @@ class Compare extends Component {
         this.setState({ enemy: res.data });
       })
       .then(console.log(this.state.enemy));
-  }
+  };
   result(myStats, enemyStats) {
     if (myStats >= enemyStats) {
       this.setState({ flag: 1 });
@@ -59,36 +56,30 @@ class Compare extends Component {
     }
   }
 
-<<<<<<< HEAD
-  handlerunmount() {
-=======
-
-
-  handlerunmount =()=> {
->>>>>>> 151d2622639cf1ff3b64995855075aee49f6c0b7
+  handlerunmount = () => {
     this.setState({ mount: false });
-  }
-  getIntelligence =()=> {
+  };
+  getIntelligence = () => {
     this.result(
       this.state.myChar.powerstats.intelligence,
       this.state.enemy.powerstats.intelligence
     );
     this.setState({ mount: true });
-  }
-  getStrength =()=> {
+  };
+  getStrength = () => {
     this.result(
       this.state.myChar.powerstats.strength,
       this.state.enemy.powerstats.strength
     );
     this.setState({ mount: true });
-  }
-  getSpeed =()=> {
+  };
+  getSpeed = () => {
     this.result(
       this.state.myChar.powerstats.speed,
       this.state.enemy.powerstats.speed
     );
     this.setState({ mount: true });
-  }
+  };
 
   render() {
     return (
@@ -98,14 +89,22 @@ class Compare extends Component {
             <div class="pop--bg">
               <img class="pop--win" src={winPopUp} alt="Winning" />
               <p class="pop-text">You collected more allies!</p>
-              <button onClick={this.props.handlerCUnmount}>
+              <button
+                className="circle--typo btn btn-link"
+                onClick={this.props.handlerCUnmount}
+              >
                 Next challenge
               </button>
             </div>
           ) : (
             <div>
-              <p>You lost</p>
-              <button onClick={this.props.handlerCUnmount}>
+              <div class="pop--bg">
+                <img class="pop--win" src={tryAgain} alt="tryAgain" />
+              </div>
+              <button
+                className="circle--typo btn btn-link"
+                onClick={this.props.handlerCUnmount}
+              >
                 Next challenge
               </button>
             </div>
