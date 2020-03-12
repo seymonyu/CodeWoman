@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./scss/Compare.scss";
-import DisplayResult from "./DisplayResult";
 import winPopUp from "./images/winPopUp.svg";
 
 const access_token = "2560077217542151";
 class Compare extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+ state = {
       myChar: {
         powerstats: {
           inteligence: " ",
@@ -32,14 +29,8 @@ class Compare extends Component {
       flag: 0,
       mount: false
     };
-    this.result = this.result.bind(this);
-    this.getIntelligence = this.getIntelligence.bind(this);
-    this.getSpeed = this.getSpeed.bind(this);
-    this.getStrength = this.getStrength.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
-    this.handlerunmount = this.handlerunmount.bind(this);
-  }
-  componentDidMount() {
+  
+  componentDidMount =()=> {
     const selectedHero = this.props.selectedHero;
     const enemyChar = this.props.enemyId[
       Math.floor(Math.random() * this.props.enemyId.length)
@@ -66,24 +57,24 @@ class Compare extends Component {
 
 
 
-  handlerunmount() {
+  handlerunmount =()=> {
     this.setState({ mount: false });
   }
-  getIntelligence() {
+  getIntelligence =()=> {
     this.result(
       this.state.myChar.powerstats.intelligence,
       this.state.enemy.powerstats.intelligence
     );
     this.setState({ mount: true });
   }
-  getStrength() {
+  getStrength =()=> {
     this.result(
       this.state.myChar.powerstats.strength,
       this.state.enemy.powerstats.strength
     );
     this.setState({ mount: true });
   }
-  getSpeed() {
+  getSpeed =()=> {
     this.result(
       this.state.myChar.powerstats.speed,
       this.state.enemy.powerstats.speed
