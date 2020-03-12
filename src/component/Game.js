@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Compare from "./Compare";
 import Questions from "./Questions";
 import axios from "axios";
-import GameStory from "./GameStory";
+// import GameStory from "./GameStory";
 import "./Game.css";
+import End from "./End";
 
 const questionsList = [
   {
@@ -230,7 +231,7 @@ class Game extends Component {
             myAlliesdata={this.state.myAlliesdata}
           />
         ) : null}
-        {this.state.end ? <p>The End</p> : null}
+        {this.state.end ? <End myAllyUrl={this.state.myAlliesUrl} /> : null}
       </div>
     );
   }

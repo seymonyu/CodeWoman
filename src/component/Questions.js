@@ -24,7 +24,7 @@ class Questions extends Component {
             <div class="pop--bg">
               <img class="pop--win" src={winPopUp} alt="Winning" />
               <p class="pop-text">You collected more allies!</p>
-              <button onClick={this.handleWinPop}>close</button>
+              <button onClick={this.props.handlerQUnmount}>close</button>n
             </div>
           ) : (
             <p>incorrect</p>
