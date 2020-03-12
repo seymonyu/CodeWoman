@@ -157,8 +157,13 @@ class Compare extends Component {
         <div className="allies-list">
           {this.props.myAlliesUrl
             ? this.props.myAlliesUrl.map((item, index) => (
-                <div>
-                  <img key={index} src={item} alt="my allies" />
+                <div className="allies-div">
+                  <img
+                    className="allies-img"
+                    key={index}
+                    src={item}
+                    alt="my allies"
+                  />
                 </div>
               ))
             : null}
