@@ -101,13 +101,13 @@ const RandomQuestion = ({
               </div>
               <div className="circle--wrap">
                 <div className="blob"></div>
-                <button
+               {/*  <button
                   type="button"
                   className="circle--typo btn btn-link"
                   onClick={handleUnmount}
                 >
                   Next!
-                </button>
+                </button> */}
               </div>
             </div>
           </div>

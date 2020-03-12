@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./scss/Compare.scss";
-// import DisplayResult from "./DisplayResult";
+import DisplayResult from "./DisplayResult";
+import winPopUp from "./images/winPopUp.svg";
+
 const access_token = "2560077217542151";
 class Compare extends Component {
   constructor(props) {
@@ -61,6 +63,7 @@ class Compare extends Component {
       this.setState({ flag: 2 });
     }
   }
+
   handlerunmount() {
     this.setState({ mount: false });
   }
@@ -89,40 +92,56 @@ class Compare extends Component {
   render() {
     return (
       <div className="displayBlock">
-        <div className="Avatars">
-          <h1>{this.state.myChar.name} </h1>
-          <img src={this.state.myChar.image.url} alt="myChar" />
-          <ul>
-            <li> {this.state.myChar.powerstats.intelligence}</li>
-            <li> {this.state.myChar.powerstats.strength}</li>
-            <li> {this.state.myChar.powerstats.speed}</li>
-          </ul>
-          <h1>{this.state.enemy.name} </h1>
-          <img src={this.state.enemy.image.url} alt="myChar" />
-          <ul>
-            <li> {this.state.enemy.powerstats.intelligence}</li>
-            <li> {this.state.enemy.powerstats.strength}</li>
-            <li> {this.state.enemy.powerstats.speed}</li>
-          </ul>
-        </div>
-        {/* {this.state.mount === true ? (
-          <DisplayResult
-            flag={this.state.flag}
-            handlerunmount={this.handlerunmount}
-            mount={this.state.mount}
-          />
-        ) : null} */}
-        <div className="Buttons">
-          <button onClick={this.getIntelligence}>Intelligence</button>
-          <button onClick={this.getStrength}>Strength</button>
-          <button onClick={this.getSpeed}>Speed</button>
-        </div>
-        <button onClick={this.props.handlerCUnmount}>Close</button>
+        {this.state.flag === 1 || this.state.flag === 2 ? (
+          this.state.flag === 1 ? (
+            <div class="pop--bg">
+              <img class="pop--win" src={winPopUp} alt="Winning" />
+              <p class="pop-text">You collected more allies!</p>
+              <button onClick={this.props.handlerCUnmount}>
+                Next challenge
+              </button>
+            </div>
+          ) : (
+            <div>
+              <p>You lost</p>
+              <button onClick={this.props.handlerCUnmount}>
+                Next challenge
+              </button>
+            </div>
+          )
+        ) : (
+          <div>
+            <div className="Avatars">
+              <h1>{this.state.myChar.name} </h1>
+              <img src={this.state.myChar.image.url} alt="myChar" />
+              <ul>
+                <li> {this.state.myChar.powerstats.intelligence}</li>
+                <li> {this.state.myChar.powerstats.strength}</li>
+                <li> {this.state.myChar.powerstats.speed}</li>
+              </ul>
+              <h1>{this.state.enemy.name} </h1>
+              <img src={this.state.enemy.image.url} alt="myChar" />
+              <ul>
+                <li> {this.state.enemy.powerstats.intelligence}</li>
+                <li> {this.state.enemy.powerstats.strength}</li>
+                <li> {this.state.enemy.powerstats.speed}</li>
+              </ul>
+            </div>
+
+            <div className="Buttons">
+              <button onClick={this.getIntelligence}>Intelligence</button>
+              <button onClick={this.getStrength}>Strength</button>
+              <button onClick={this.getSpeed}>Speed</button>
+            </div>
+          </div>
+        )}
 
         <div className="allies-list">
           {this.props.myAlliesUrl
             ? this.props.myAlliesUrl.map((item, index) => (
-                <img key={index} src={item} alt="my allies" />
+                <div>
+                  <img key={index} src={item} alt="my allies" />
+                </div>
               ))
             : null}
         </div>
