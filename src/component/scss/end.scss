@@ -17,9 +17,10 @@ $marginal: 14px;
 $border-thick: 4px;
 $border-thin: 1px;
 
-.game_container {
-  background-color: $red;
-  color: $blue;
+.end-container {
+  background-color: $red !important;
+  color: $blue !important;
+  height: 100%;
 }
 
 .end-title {
@@ -78,7 +79,7 @@ $border-thin: 1px;
 }
 
 @media screen and (min-width: 415px) and (max-width: 768px) {
-  .game_container {
+  .end_container {
     font-size: 6vw;
   }
 

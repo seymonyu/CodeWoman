@@ -3,7 +3,7 @@ import "./scss/end.scss";
 
 const End = ({ myAllyUrl }) => {
   return (
-    <div>
+    <div className="end-container">
       {myAllyUrl ? (
         <div>
           <h2 className="end-title">Congratulations!</h2>
