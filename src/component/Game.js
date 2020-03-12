@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import Compare from "./Compare";
 import Questions from "./Questions";
 import axios from "axios";
-// import GameStory from "./GameStory";
 import "./Game.css";
 import End from "./End";
+<<<<<<< HEAD
 import "./scss/Game.scss";
 
 const questionsList = [
@@ -90,6 +90,9 @@ const questionsList = [
     A: false
   }
 ];
+=======
+import questionsList from "./questionList"
+>>>>>>> 151d2622639cf1ff3b64995855075aee49f6c0b7
 
 function getQuestion(questionsList) {
   return questionsList[Math.floor(Math.random() * questionsList.length)];
@@ -109,6 +112,7 @@ class Game extends Component {
     counter: 1,
     end: false
   };
+  
   componentDidMount() {
     this.setState({
       answered: 0,
