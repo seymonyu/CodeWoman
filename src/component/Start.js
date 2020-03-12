@@ -29,8 +29,7 @@ class Start extends Component {
                 </div>
                 <div className="start--col_right col">
                   <h2 className="start--title">Artechmiss</h2>
-                  <p className="start--typo">Super</p>
-                  <p className="start--typo">Heroine</p>
+                  <p className="start--typo"> Super Heroine</p>
                   <div className="circle--wrap">
                     <div className=""></div>
                     <button
@@ -41,9 +40,6 @@ class Start extends Component {
                       Play the Game
                     </button>
                   </div>
-                  <span className="start--marginal">
-                    #woman #tech #wildcodeschool #amsterdam
-                  </span>
                 </div>
               </div>
             </div>
