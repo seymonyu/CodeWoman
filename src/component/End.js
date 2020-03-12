@@ -1,10 +1,12 @@
 import React from "react";
+import "./scss/end.scss";
+
 const End = ({ myAllyUrl }) => {
   return (
     <div>
       {myAllyUrl ? (
         <div>
-          <h2>Congrats!! You have collected allies! </h2>
+          <h2 className="end-title">Congratulations!</h2>
           {myAllyUrl.map((item, index) => (
             <img
               className="question--allies"
@@ -17,6 +19,13 @@ const End = ({ myAllyUrl }) => {
       ) : (
         <h2>Better luck next time!! </h2>
       )}
+      <div className="end-message">
+        <h2>
+          You have passed through the time and space using your powers! You have
+          also united with other women!
+        </h2>
+        <h3>Together and using our Super Powers - we can achieve much more!</h3>
+      </div>
     </div>
   );
 };
