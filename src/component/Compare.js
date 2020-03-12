@@ -90,21 +90,37 @@ class Compare extends Component {
     return (
       <div className="displayBlock">
         <div className="Avatars">
-          <h1>{this.state.myChar.name} </h1>
-          <img src={this.state.myChar.image.url} alt="myChar" />
-          <ul>
-            <li> {this.state.myChar.powerstats.intelligence}</li>
-            <li> {this.state.myChar.powerstats.strength}</li>
-            <li> {this.state.myChar.powerstats.speed}</li>
-          </ul>
-          <h1>{this.state.enemy.name} </h1>
-          <img src={this.state.enemy.image.url} alt="myChar" />
-          <ul>
-            <li> {this.state.enemy.powerstats.intelligence}</li>
-            <li> {this.state.enemy.powerstats.strength}</li>
-            <li> {this.state.enemy.powerstats.speed}</li>
-          </ul>
+          <div className="avatars--container row">
+            <div className="avatars_col col">
+              <h1 className="avatars_h1">{this.state.myChar.name} </h1>
+              <img
+                className="avatars_img"
+                src={this.state.myChar.image.url}
+                alt="myChar"
+              />
+              <ul>
+                <li> {this.state.myChar.powerstats.intelligence}</li>
+                <li> {this.state.myChar.powerstats.strength}</li>
+                <li> {this.state.myChar.powerstats.speed}</li>
+              </ul>
+            </div>
+            <p className="avatars_p">vs</p>
+            <div className="avatars_col col">
+              <h1 className="avatars_h1">{this.state.enemy.name} </h1>
+              <img
+                className="avatars_img"
+                src={this.state.enemy.image.url}
+                alt="myChar"
+              />
+              <ul>
+                <li> {this.state.enemy.powerstats.intelligence}</li>
+                <li> {this.state.enemy.powerstats.strength}</li>
+                <li> {this.state.enemy.powerstats.speed}</li>
+              </ul>
+            </div>
+          </div>
         </div>
+
         {/* {this.state.mount === true ? (
           <DisplayResult
             flag={this.state.flag}
@@ -112,9 +128,25 @@ class Compare extends Component {
             mount={this.state.mount}
           />
         ) : null} */}
-        <div className="Buttons">
-          <button onClick={this.getIntelligence}>Intelligence</button>
-          <button onClick={this.getStrength}>Strength</button>
+        <div>
+          <button
+            className="circle--typo btn btn-link Buttons"
+            onClick={this.getIntelligence}
+          >
+            Intelligence
+          </button>
+          <button
+            className="circle--typo btn btn-link Buttons"
+            onClick={this.getStrength}
+          >
+            Strength
+          </button>
+          <button
+            className="circle--typo btn btn-link Buttons"
+            onClick={this.getStrength}
+          >
+            Strength
+          </button>
           <button onClick={this.getSpeed}>Speed</button>
         </div>
         <button onClick={this.props.handlerCUnmount}>Close</button>
