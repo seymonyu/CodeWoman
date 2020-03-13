@@ -28,8 +28,8 @@ class Start extends Component {
                 <div className="eye--img_pupille"></div>
               </div>
 
-              <div className="start--typo_wrap  ">
-                <p className="start--typo ">
+              <div className="start--typo_wrap wrapper ">
+                <p className="start--typo slide">
                   {" "}
                   Super <br></br>Heroine
                 </p>

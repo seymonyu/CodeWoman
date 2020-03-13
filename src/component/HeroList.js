@@ -5,18 +5,7 @@ const HeroList = ({ onClick, obj }) => {
     onClick(obj);
   };
 
-  return (
-    <div className="allies-all container">
-      <div className="allies--wrapper row">
-        <img
-          src={obj.image.url}
-          onClick={SelectedOb}
-          alt="avatar"
-          className="question--allies col-md-3"
-        />
-      </div>
-    </div>
-  );
+  return <img src={obj.image.url} onClick={SelectedOb} alt="avatar" />;
 };
 
 export default HeroList;

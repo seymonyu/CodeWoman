@@ -34,7 +34,7 @@ $border-thin: 1px;
   font-size: 1.3rem !important;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
   .btn {
     color: white !important;
     background-color: $light-lilac !important;
@@ -55,7 +55,7 @@ html,
   text-align: center;
   font-weight: 500;
   overflow: hidden;
-  animation: fadeIn 2s reverse;
+  animation: fadeIn 0.7s reverse;
 }
 
 .start--title {
@@ -195,6 +195,12 @@ html,
   -webkit-animation-delay: 2s;
   animation: slide 0.5s forwards;
   animation-delay: 4s;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .slide {
+    top: 5%;
+  }
 }
 
 @-webkit-keyframes slide {

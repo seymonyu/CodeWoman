@@ -1,17 +1,16 @@
 import React from "react";
-
+import "./scss/Global.scss";
+import "./scss/Start.scss";
+import "./scss/Start.css";
 import evilRobot from "./images/evilRobot.svg";
 
 const EvilRobot = () => {
   return (
-    <section className="robot">
-      <div className="robot--wrap container-fluid">
-        <div className="robot--row row">
-          <div className="robot--col_left col">
-            <div className="robot--wrapper">
-              <img className="robot--eye" src={evilRobot} alt="Eye" />
-            </div>
-          </div>
+    <section className="start">
+      <h2 className="start--title">Artechmis</h2>
+      <div className="start--wrap container-fluid">
+        <div className="eye--wrapper ">
+          <div className="eye--img"></div>
           <div className="robot--col_right col">
             <div className="speech-bubble">
               <div className="typewriter-first">

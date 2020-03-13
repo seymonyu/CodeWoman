@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import "./scss/Story.scss";
 import SelectHero from "./SelectHero";
 import evilRobot from "./images/evilRobot.svg";
 class Story extends Component {
   state = {
-    id_list: [589, 720, 165, 638, 309, 356, 107, 238, 643],
+    id_list: [589, 720, 165, 638, 309, 356, 107, 238],
     superHero: [],
     selectedHero: "",
     mountHero: false,
@@ -68,43 +68,28 @@ class Story extends Component {
             maleUrl={this.state.id_male}
           />
         ) : (
-          <section className="robot">
-            <div className="robot--wrap container-fluid">
-              <div className="robot--row row">
-                <div className="robot--col_left col">
-                  <div className="robot--wrapper">
-                    <img className="robot--eye" src={evilRobot} alt="Eye" />
-                  </div>
-                </div>
-                <div className="robot--col_right col">
-                  <div className="speech-bubble">
-                    <div className="typewriter-first">
-                      <h1>I have all my heroes fighting for me.</h1>
-                    </div>
-                    <div className="typewriter-second">
-                      <h1>You have no chance.</h1>
-                    </div>
-                    <div className="typewriter-third">
-                      <h1>You will never have a job in tech!</h1>
-                    </div>
-                    <div className="typewriter-fourth">
-                      <h1>Hahahahahahahahahahahahaha.</h1>
-                    </div>
-                    <div className="typewriter-fifth">
-                      <h1>What?? You wanna fight me??</h1>
-                    </div>
-                  </div>
-                  <div className="circle--wrap">
-                    <div className=""></div>
-                    <button
-                      type="button"
-                      onClick={this.toggleMountSelectHero}
-                      className="circle--typo btn btn-link"
-                    >
-                      Choose a heroine
-                    </button>
-                  </div>
-                </div>
+          <section className="start">
+            <h2 className="start--title">Artechmis</h2>
+            <div className="start--wrap container-fluid">
+              <div className="eye--wrapper">
+                <div className="robot--img" />
+              </div>
+            </div>
+            <div className="robot--col_right ">
+              <div className="robot--speech">
+                <span>I have all my heroes fighting for me.</span>
+                <br></br>
+                <span>You will never have a job in tech!</span>
+              </div>
+              <div className="circle--wrap">
+                <div className=""></div>
+                <button
+                  type="button"
+                  onClick={this.toggleMountSelectHero}
+                  className="circle--typo btn btn-link"
+                >
+                  Choose a heroine
+                </button>
               </div>
             </div>
           </section>
