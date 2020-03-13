@@ -71,7 +71,7 @@ $border-thin: 1px;
   bottom: -70%;
   width: 100%;
   height: 30%;
-  background: $lilac;
+  background: $light-lilac;
   -webkit-animation: slide 0.5s forwards;
   -webkit-animation-delay: 2s;
   animation: slidehero 0.5s forwards;
@@ -85,5 +85,49 @@ $border-thin: 1px;
   }
   100% {
     bottom: 0;
+  }
+}
+
+/* SLIDE IN*/
+.wrapper_select {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 50vh;
+}
+
+.slide_select {
+  position: absolute;
+  left: -100%;
+  width: 100%;
+  height: 60%;
+  bottom: 35%;
+  padding-left: 5%;
+  padding: 5%;
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+  opacity: 1;
+  background: $lilac !important;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+  animation-delay: 0.9s;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .slide_select {
+    top: 5%;
+  }
+}
+
+@-webkit-keyframes slide {
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes slide {
+  100% {
+    left: 0;
   }
 }

@@ -37,23 +37,18 @@ const RandomQuestion = ({
       </div>
       <section className="question">
         <div className="question--wrap container-fluid">
-          <div className="question--row row">
-            <div className="question--col_left col">
-              <div className="question--wrapper">
-                <img className="question--eye" src={styleQuestions} alt="Eye" />
-              </div>
-              <div className="question--wrapper">
-                <img
-                  className="question--heroine"
-                  src={ourHeroUrl}
-                  alt="Super Heroine"
-                />
-              </div>
+          <div className="">
+            <div className="question--wrapper">
+              <img
+                className="question--heroine"
+                src={ourHeroUrl}
+                alt="Super Heroine"
+              />
             </div>
-            <div className="question--col_right col">
-              <div className="question--title">
-                <p className="question--title_p">{question.Q}</p>
-              </div>
+
+            <div className="question--title wrapper">
+              <p className="question--title_p slide">{question.Q}</p>
+
               <button
                 type="button"
                 className="question--btn btn btn-link"
@@ -68,10 +63,11 @@ const RandomQuestion = ({
               >
                 No
               </button>
-              <div className="allies-all">
-                <p className="allies--text">Your Allies!</p>
-                <div className="allies--wrapper">
-                  {/* <img
+            </div>
+            <div className="allies-all">
+              <p className="allies--text">Your Allies!</p>
+              <div className="allies--wrapper">
+                {/* <img
                   className="question--allies"
                   src="https://cdn.vox-cdn.com/thumbor/ruew5Rmzlkrjuw_9jnSWwsSIc8E=/1400x1400/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/19581903/Screen_Shot_2020_01_07_at_10.26.15_AM.png"
                   alt="Super Heroine"
@@ -87,20 +83,22 @@ const RandomQuestion = ({
                   alt="Super Heroine"
                 /> */}
 
-                  {myAllyUrl
-                    ? myAllyUrl.map((item, index) => (
-                        <img
-                          className="question--allies"
-                          key={index}
-                          src={item}
-                          alt="my allies"
-                        />
-                      ))
-                    : null}
-                </div>
+                {myAllyUrl
+                  ? myAllyUrl.map((item, index) => (
+                      <div className="allies-all wrapper">
+                        <div className="allies--wrapper slidehero ">
+                          <img
+                            className="question--allies"
+                            key={index}
+                            src={item}
+                            alt="my allies"
+                          />
+                        </div>
+                      </div>
+                    ))
+                  : null}
               </div>
               <div className="circle--wrap">
-                <div className=""></div>
                 <button
                   type="button"
                   className="circle--typo btn btn-link"

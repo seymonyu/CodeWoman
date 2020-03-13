@@ -189,24 +189,26 @@ class Game extends Component {
   render() {
     return (
       <div className="game_container">
+        <h2 className="start--title">Artechmis</h2>
         {!this.state.questionsMount &&
         !this.state.compareMount &&
         !this.state.end ? (
           <div>
             {" "}
             <div className="choosen_p_img_container">
-              <div className="choosen_p_wrap">
-                <p className="choosen_p">You have chosen</p>
-              </div>
               <div className="choosen_img_wrap ">
                 <img
-                  className="choosen_img"
+                  className="choosen_img_game"
                   src={this.props.ourHeroUrl}
                   alt="super hero"
                 />
               </div>
             </div>
-            <p className="choosen_begin">Let's begin the game</p>
+            <div className="wrapper">
+              <p className="start--typo slide_story">
+                You have chosen! <br></br>Let's begin the game
+              </p>
+            </div>
             <div className="circle--wrap">
               <button
                 onClick={this.handleStartGame}

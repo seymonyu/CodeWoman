@@ -26,28 +26,28 @@ $border-thin: 1px;
 /* BUTTON */
 .btn {
   color: white !important;
-  background-color: $light-lilac !important;
+  border: $border-thick solid $light-lilac !important;
   border-radius: 0.25rem 4rem 0.25rem 0.25rem !important;
-  height: 70%;
-  width: 40%;
-  box-shadow: $lilac 30px 30px;
-  font-size: 1.3rem !important;
+  height: 60px;
+  width: 200px;
+  font-weight: 500 !important;
+  box-shadow: $lilac 20px 20px;
+  font-size: 1rem !important;
+  &:hover {
+    text-decoration: none !important;
+    background-color: $light-lilac;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .btn {
-    color: white !important;
-    background-color: $light-lilac !important;
-    border-radius: 0.25rem 4rem 0.25rem 0.25rem !important;
-    height: 70px;
-    width: 300px;
     box-shadow: $lilac 10px 10px;
-    font-size: $h2;
   }
 }
 
 body,
 html,
+.App,
 .start {
   font-family: $font !important;
   color: $red;
@@ -56,6 +56,7 @@ html,
   font-weight: 500;
   overflow: hidden;
   animation: fadeIn 0.7s reverse;
+  height: 100vh;
 }
 
 .start--title {
@@ -101,10 +102,8 @@ html,
   height: 40vh;
   border-radius: 20px 80px 20px 20px;
   animation: morph 3s linear infinite;
-  width: 60%;
-  margin-left: 15%;
-  width: 70%;
-  margin-right: 15%;
+  width: 300px;
+  margin: 0 auto;
 }
 
 @keyframes morph {
@@ -182,24 +181,52 @@ html,
   position: relative;
   overflow: hidden;
   width: 100%;
-  height: 30vh;
+  height: 50vh;
 }
 
 .slide {
-  position: absolute;
+  position: fixed;
   left: -100%;
   width: 100%;
-  top: 20%;
-  background: $black;
+  height: 20%;
+  bottom: 20%;
+  padding-left: 5%;
+  padding: 5%;
+  font-size: 2rem !important;
+  line-height: 2rem !important;
+  opacity: 1;
+  background: $light-lilac !important;
   -webkit-animation: slide 0.5s forwards;
   -webkit-animation-delay: 2s;
   animation: slide 0.5s forwards;
-  animation-delay: 4s;
+  animation-delay: 0.9s;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0rem !important;
+}
+
+.slide_story {
+  position: fixed;
+  left: -100%;
+  width: 100%;
+  height: 20%;
+  bottom: 20%;
+  padding-left: 5%;
+  padding: 5%;
+  font-size: 1.5rem !important;
+  line-height: 1.8rem !important;
+  opacity: 1;
+  background: $light-lilac !important;
+  -webkit-animation: slide 0.5s forwards;
+  -webkit-animation-delay: 2s;
+  animation: slide 0.5s forwards;
+  animation-delay: 0.9s;
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .slide {
-    top: 5%;
   }
 }
 
@@ -220,7 +247,7 @@ html,
   position: fixed;
   width: 100%;
   bottom: 0;
-  height: 20vh;
+  height: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -239,4 +266,39 @@ html,
     transform: scale(1.03);
     opacity: 0;
   }
+}
+
+/* Game */
+
+.choosen_img_game {
+  border-radius: 20%;
+}
+
+/* RandomQuestion */
+.question--heroine {
+  width: 100px;
+  border-radius: 20px;
+  position: absolute;
+  right: 5%;
+  top: 5%;
+}
+
+.question {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.question--title_p {
+  font-size: 1.3rem !important;
+}
+
+.question--btn {
+  padding-bottom: 3%;
+}
+
+.btn-link {
+  margin-bottom: 23px;
 }

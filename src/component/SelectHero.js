@@ -30,8 +30,10 @@ function SelectHero({
               <div className="choose--img" />
             </div>
           </div>
-          <div className="start--typo">
-            <p>Choose your Heroine!</p>
+          <div className="wrapper_select ">
+            <div className="start--typo slide_select">
+              <p>Choose your Heroine!</p>
+            </div>
           </div>
           <div className="allies-all ">
             <div className="allies--wrapper slidehero ">

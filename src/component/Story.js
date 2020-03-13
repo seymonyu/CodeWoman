@@ -75,10 +75,8 @@ class Story extends Component {
                 <div className="robot--img" />
               </div>
             </div>
-            <div className="robot--col_right ">
-              <div className="robot--speech">
-                <span>I have all my heroes fighting for me.</span>
-                <br></br>
+            <div className="wrapper ">
+              <div className="start--typo slide_story">
                 <span>You will never have a job in tech!</span>
               </div>
               <div className="circle--wrap">
