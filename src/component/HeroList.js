@@ -1,6 +1,4 @@
 import React from "react";
-import "./scss/SelectHero.scss";
-import "./SelectHero.css";
 
 const HeroList = ({ onClick, obj }) => {
   const SelectedOb = () => {

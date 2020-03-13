@@ -1,5 +1,5 @@
 import React from "react";
-import "./scss/winPopUp.scss";
+
 import tryAgain from "./images/tryAgain.svg";
 
 const TryAgainPopUp = ({ answered, handlerGameFlow, handlerQUnmount }) => {

@@ -1,8 +1,7 @@
 import React from "react";
 import HeroList from "./HeroList";
 import Game from "./Game";
-import "./scss/SelectHero.scss";
-import "./SelectHero.css";
+
 import Heroine from "./images/Heroine.svg";
 
 function SelectHero({

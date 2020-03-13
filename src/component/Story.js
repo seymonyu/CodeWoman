@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./scss/evilRobot.scss";
+
 import SelectHero from "./SelectHero";
 import evilRobot from "./images/evilRobot.svg";
 class Story extends Component {

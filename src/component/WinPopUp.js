@@ -1,5 +1,5 @@
 import React from "react";
-import "./scss/winPopUp.scss";
+
 import winPopUp from "./images/winPopUp.svg";
 
 const WinPopUp = ({ answered, handlerGameFlow, handlerQUnmount }) => {

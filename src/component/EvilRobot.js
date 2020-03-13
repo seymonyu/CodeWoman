@@ -1,5 +1,5 @@
 import React from "react";
-import "./scss/evilRobot.scss";
+
 import evilRobot from "./images/evilRobot.svg";
 
 const EvilRobot = () => {

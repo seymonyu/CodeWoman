@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./scss/Compare.scss";
+
 import DisplayResult from "./DisplayResult";
 const access_token = "2560077217542151";
 class Compare extends Component {

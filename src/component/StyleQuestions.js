@@ -1,5 +1,5 @@
 import React from "react";
-import "./scss/styleQuestions.scss";
+
 import styleQuestions from "./images/styleQuestions.svg";
 
 const StyleQuestions = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import styleQuestions from "./images/styleQuestions.svg";
-import "./scss/styleQuestions.scss";
+
 import winPopUp from "./images/winPopUp.svg";
 
 const RandomQuestion = ({
