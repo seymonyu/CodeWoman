@@ -89,34 +89,42 @@ class Compare extends Component {
   render() {
     return (
       <div className="displayBlock">
-        <div className="Avatars">
-          <div className="avatars--container row">
-            <div className="avatars_col col">
-              <h1 className="avatars_h1">{this.state.myChar.name} </h1>
+        <div className="avatars--container ">
+          <div className="avatars--row">
+            <h1 className="avatars_h1">{this.state.myChar.name} </h1>
+            <div className="avatars_col ">
               <img
-                className="avatars_img"
+                className="choosen_img_game"
                 src={this.state.myChar.image.url}
                 alt="myChar"
               />
-              <ul>
-                <li> {this.state.myChar.powerstats.intelligence}</li>
-                <li> {this.state.myChar.powerstats.strength}</li>
-                <li> {this.state.myChar.powerstats.speed}</li>
-              </ul>
+              <div className="avatars--power">
+                <span> {this.state.myChar.powerstats.intelligence}</span>
+                <br></br>
+                <span> {this.state.myChar.powerstats.strength}</span>
+                <br></br>
+                <span> {this.state.myChar.powerstats.speed}</span>
+                <br></br>
+              </div>
             </div>
-            <p className="avatars_p">vs</p>
-            <div className="avatars_col col">
-              <h1 className="avatars_h1">{this.state.enemy.name} </h1>
+          </div>
+          <p className="avatars_p">vs</p>
+          <div className="avatars--row">
+            <h1 className="avatars_h1">{this.state.enemy.name} </h1>
+            <div className="avatars_col">
               <img
-                className="avatars_img"
+                className="choosen_img_game"
                 src={this.state.enemy.image.url}
                 alt="myChar"
               />
-              <ul>
-                <li> {this.state.enemy.powerstats.intelligence}</li>
-                <li> {this.state.enemy.powerstats.strength}</li>
-                <li> {this.state.enemy.powerstats.speed}</li>
-              </ul>
+              <div className="avatars--power">
+                <span> {this.state.enemy.powerstats.intelligence}</span>
+                <br></br>
+                <span> {this.state.enemy.powerstats.strength}</span>
+                <br></br>
+                <span> {this.state.enemy.powerstats.speed}</span>
+                <br></br>
+              </div>
             </div>
           </div>
         </div>
@@ -128,7 +136,7 @@ class Compare extends Component {
             mount={this.state.mount}
           />
         ) : null} */}
-        <div>
+        <div className="button--compare_wrap">
           <button
             className="circle--typo btn btn-link Buttons"
             onClick={this.getIntelligence}
@@ -145,13 +153,13 @@ class Compare extends Component {
             className="circle--typo btn btn-link Buttons"
             onClick={this.getStrength}
           >
-            Strength
+            Speed
           </button>
           <button onClick={this.getSpeed}>Speed</button>
         </div>
         <button onClick={this.props.handlerCUnmount}>Close</button>
 
-        <div className="allies-list">
+        <div className="allies--wrapper ">
           {this.props.myAlliesUrl
             ? this.props.myAlliesUrl.map((item, index) => (
                 <img key={index} src={item} alt="my allies" />

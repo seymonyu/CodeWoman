@@ -198,7 +198,7 @@ class Game extends Component {
             <div className="choosen_p_img_container">
               <div className="choosen_img_wrap ">
                 <img
-                  className="choosen_img_game"
+                  className="choosen_img_game img--bigger"
                   src={this.props.ourHeroUrl}
                   alt="super hero"
                 />

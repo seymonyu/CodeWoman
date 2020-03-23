@@ -26,13 +26,27 @@ const RandomQuestion = ({
     <div>
       <div>
         {answered === 0 ? null : answered === 1 ? (
-          <div class="pop--bg">
-            <img class="pop--win" src={winPopUp} alt="Winning" />
-            <p class="pop-text">You collected more allies!</p>
-            <button onClick={handleWinPop}>close</button>
+          <div className="pop--all">
+            <div className="pop--blur"></div>
+            <div className="pop--wrap">
+              <h1 class="pop--win">You won!!</h1>
+              <p class="pop-text">You collected more allies!</p>
+              <button className="pop--button" onClick={handleWinPop}>
+                close
+              </button>
+            </div>
           </div>
         ) : (
-          <p>incorrect</p>
+          <div className="pop--all">
+            <div className="pop--blur"></div>
+            <div className="pop--wrap">
+              <h1 class="pop--win">Try again</h1>
+              <p class="pop-text">That was incorrect</p>
+              <button className="pop--button" onClick={handleWinPop}>
+                close
+              </button>
+            </div>
+          </div>
         )}
       </div>
       <section className="question">
@@ -47,7 +61,9 @@ const RandomQuestion = ({
             </div>
 
             <div className="question--title wrapper">
-              <p className="question--title_p slide">{question.Q}</p>
+              <div className=" slide">
+                <p className="question--title_p">{question.Q}</p>
+              </div>
 
               <button
                 type="button"

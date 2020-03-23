@@ -19,7 +19,7 @@ class Questions extends Component {
           myAllyUrl={this.props.myAlliesUrl}
           answered={this.props.answered}
         />
-        <div>
+        <div className="pop--wrap">
           {this.props.answered === 0 ? null : this.props.answered === 1 ? (
             <div class="pop--bg">
               <img class="pop--win" src={winPopUp} alt="Winning" />
