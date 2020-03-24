@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./scss/Global.scss";
-import "./scss/Start.scss";
-import "./scss/Start.css";
+import "./scss/start.scss";
+// import "./scss/start.css";
 import Background from "./images/Heroine2.svg";
 import Story from "./Story";
 
