@@ -1,7 +1,7 @@
 import React from "react";
 import styleQuestions from "./images/styleQuestions.svg";
-
 import winPopUp from "./images/winPopUp.svg";
+import tryAgain from "./images/tryAgain.svg";
 
 const RandomQuestion = ({
   question,
@@ -19,33 +19,30 @@ const RandomQuestion = ({
   const selectedNo = () => {
     handleNo(question);
   };
-  const handleWinPop = () => {
-    setTimeout(handleUnmount, 3000);
-  };
+
   return (
     <div>
       <div>
         {answered === 0 ? null : answered === 1 ? (
-          <div className="pop--all">
-            <div className="pop--blur"></div>
-            <div className="pop--wrap">
-              <h1 class="pop--win">You won!!</h1>
-              <p class="pop-text">You collected more allies!</p>
-              <button className="pop--button" onClick={handleWinPop}>
-                close
-              </button>
-            </div>
+          <div class="pop--bg">
+            <img class="pop--win" src={winPopUp} alt="Winning" />
+            <p class="pop-text">You collected more allies!</p>
+            <button
+              className="circle--typo btn btn-link"
+              onClick={this.props.handlerUnmount}
+            >
+              Next challenge
+            </button>
           </div>
         ) : (
-          <div className="pop--all">
-            <div className="pop--blur"></div>
-            <div className="pop--wrap">
-              <h1 class="pop--win">Try again</h1>
-              <p class="pop-text">That was incorrect</p>
-              <button className="pop--button" onClick={handleWinPop}>
-                close
-              </button>
-            </div>
+          <div class="pop--bg">
+            <img class="pop--win" src={tryAgain} alt="tryAgain" />
+            <button
+              className="circle--typo btn btn-link"
+              onClick={this.props.handlerUnmount}
+            >
+              Next challenge
+            </button>
           </div>
         )}
       </div>
@@ -83,22 +80,6 @@ const RandomQuestion = ({
             <div className="allies-all">
               <p className="allies--text">Your Allies!</p>
               <div className="allies--wrapper">
-                {/* <img
-                  className="question--allies"
-                  src="https://cdn.vox-cdn.com/thumbor/ruew5Rmzlkrjuw_9jnSWwsSIc8E=/1400x1400/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/19581903/Screen_Shot_2020_01_07_at_10.26.15_AM.png"
-                  alt="Super Heroine"
-                />
-                <img
-                  className="question--allies"
-                  src="https://cdn.vox-cdn.com/thumbor/ruew5Rmzlkrjuw_9jnSWwsSIc8E=/1400x1400/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/19581903/Screen_Shot_2020_01_07_at_10.26.15_AM.png"
-                  alt="Super Heroine"
-                />
-                <img
-                  className="question--allies"
-                  src="https://cdn.vox-cdn.com/thumbor/ruew5Rmzlkrjuw_9jnSWwsSIc8E=/1400x1400/filters:format(png)/cdn.vox-cdn.com/uploads/chorus_asset/file/19581903/Screen_Shot_2020_01_07_at_10.26.15_AM.png"
-                  alt="Super Heroine"
-                /> */}
-
                 {myAllyUrl
                   ? myAllyUrl.map((item, index) => (
                       <div className="allies-all wrapper">
@@ -114,25 +95,11 @@ const RandomQuestion = ({
                     ))
                   : null}
               </div>
-              <div className="circle--wrap">
-                <button
-                  type="button"
-                  className="circle--typo btn btn-link"
-                  onClick={handleUnmount}
-                >
-                  Next!
-                </button>
-              </div>
             </div>
           </div>
         </div>
       </section>
     </div>
-    // <div>
-    //   <p>{question.Q}</p>
-    //   <button onClick={selectedYes}>Yes</button>
-    //   <button onClick={selectedNo}>No</button>
-    // </div>
   );
 };
 
