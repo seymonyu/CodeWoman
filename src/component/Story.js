@@ -1,14 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-<<<<<<< HEAD
-
-import "./scss/evilRobot.scss";
-import evilRobot from "./images/evilRobot.svg";
-import Game from "./Game";
-=======
 import "./scss/Story.scss";
 import SelectHero from "./SelectHero";
->>>>>>> 225b6e50b72101e2e9b557cce85c34cf78639c80
 
 class Story extends Component {
   state = {
@@ -19,36 +12,36 @@ class Story extends Component {
     mountGame: false,
     ourHeroUrl: "",
     id_male: "",
-    mountChoseMale: false
+    mountChoseMale: false,
   };
   componentDidMount = () => {
-    this.state.id_list.map(element => {
+    this.state.id_list.map((element) => {
       return axios
         .get(`http://superheroapi.com/api.php/10158157868173814/${element}`)
-        .then(response => {
+        .then((response) => {
           let temp = response.data;
           this.setState({
             superHero: [...this.state.superHero, temp],
             selectedHero: temp.id,
-            ourHeroUrl: temp.image.url
+            ourHeroUrl: temp.image.url,
           });
         })
-        .catch(error => console.error(`something went wrong: ${error}`));
+        .catch((error) => console.error(`something went wrong: ${error}`));
     });
     return axios
       .get(`http://superheroapi.com/api.php/10158157868173814/498`)
-      .then(response => {
+      .then((response) => {
         this.setState({ id_male: response.data.image.url });
       })
-      .catch(error => console.error(`something went wrong: ${error}`));
+      .catch((error) => console.error(`something went wrong: ${error}`));
   };
-  selectHeroOnClick = chosenHero => {
+  selectHeroOnClick = (chosenHero) => {
     this.setState({ selectedHero: chosenHero.id });
     this.setState({
       id_list: this.state.id_list.filter(
-        item => item !== parseInt(chosenHero.id)
+        (item) => item !== parseInt(chosenHero.id)
       ),
-      ourHeroUrl: chosenHero.image.url
+      ourHeroUrl: chosenHero.image.url,
     });
     this.toggleMountGameMount();
   };
